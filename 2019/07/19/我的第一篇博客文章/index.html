@@ -16,7 +16,7 @@
 <meta property="og:description" content="我的第一篇博客文章也是起点，也是转折点。                                                                                                    —-pzsugar">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/19/我的第一篇博客文章/dog.jpg">
-<meta property="og:updated_time" content="2019-07-19T15:24:52.962Z">
+<meta property="og:updated_time" content="2019-08-09T10:23:06.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的第一篇博客文章">
 <meta name="twitter:description" content="我的第一篇博客文章也是起点，也是转折点。                                                                                                    —-pzsugar">
@@ -69,6 +69,8 @@
 		</nav>
 		<nav class="header-smart-menu">
     		
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章 </a>
     			
             
     			
@@ -177,6 +179,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="我的第一篇博客文章"><a href="#我的第一篇博客文章" class="headerlink" title="我的第一篇博客文章"></a>我的第一篇博客文章</h1><p>也是起点，也是转折点。<br>                                                                                                    —-pzsugar</p>
+ <a id="more"></a>
+
 <div align="center">
 <img src="/2019/07/19/我的第一篇博客文章/dog.jpg" align="center" style="zoom:100%">
 </div>
@@ -301,6 +305,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我的第一篇博客文章"><span class="toc-number">1.</span> <span class="toc-text">我的第一篇博客文章</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -344,7 +361,7 @@
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
-		innerArchive: false,
+		innerArchive: true,
 		showTags: false
 	}
 </script>
@@ -361,6 +378,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
+      
+      
     
       
     
@@ -374,16 +393,73 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-        
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章 </a></li>
       
         
       
-      <li style="width: 100%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+        
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
   </div>
   <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            3、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
     
 
     

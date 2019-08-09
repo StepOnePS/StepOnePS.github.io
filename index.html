@@ -64,6 +64,8 @@
 		<nav class="header-smart-menu">
     		
     			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章 </a>
+    			
             
     			
             
@@ -173,11 +175,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="我的第一篇博客文章"><a href="#我的第一篇博客文章" class="headerlink" title="我的第一篇博客文章"></a>我的第一篇博客文章</h1><p>也是起点，也是转折点。<br>                                                                                                    —-pzsugar</p>
-<div align="center">
-<img src="/2019/07/19/我的第一篇博客文章/dog.jpg" align="center" style="zoom:100%">
-</div>
-
-
+        
       
 
       
@@ -242,60 +240,7 @@
         <h1 id="GitHub是个啥，Git又是个啥？（含GitHub新手教程及Git安装使用教程）"><a href="#GitHub是个啥，Git又是个啥？（含GitHub新手教程及Git安装使用教程）" class="headerlink" title="GitHub是个啥，Git又是个啥？（含GitHub新手教程及Git安装使用教程）"></a>GitHub是个啥，Git又是个啥？（含GitHub新手教程及Git安装使用教程）</h1><h2 id="一、GitHub是个啥？"><a href="#一、GitHub是个啥？" class="headerlink" title="一、GitHub是个啥？"></a>一、GitHub是个啥？</h2><p><strong>①使用GitHub能干什么？</strong></p>
 <p>答：托管代码，托管代码，还是托管代码。</p>
 <p>保证把你的代码托管的服服帖帖，尤其在版本更迭和修改与改进较多的时候特别适用。</p>
-<p><strong>②GitHub主页长什么样子</strong></p>
-<div align="center">
-<img src="/2019/07/19/Git/repository.png" align="center" style="zoom:100%">
-</div>
-
-<p><strong>③基本概念</strong></p>
-<ul>
-<li><p><strong>仓库（repository）</strong></p>
-<p>仓库用来存放项目代码。每个项目对应一个仓库。</p>
-</li>
-<li><p><strong>收藏（Star）</strong></p>
-<p>收藏项目的人数，也可以在把感兴趣的开源代买放到自己的收藏里，方便查找。</p>
-</li>
-<li><p><strong>复制克隆项目（Fork）</strong></p>
-<p>可以从别人的仓库可以Fork一份代码。</p>
-</li>
-<li><p><strong>发起请求（Pull request）</strong></p>
-<p>基于Fork的功能，如果你在别人项目的基础上做了改进，并且觉得自己的改进对项目有益，愿意让改进让更多人收益，就可以发起请求（Pull request）给原有项目创始人。如果原有项目创始人觉得你的代码OK，就会接受你的请求，那样原始项目就会有新的改进。</p>
-</li>
-<li><p><strong>问题（Issue）</strong></p>
-<p>别人发现你的项目存在bug或者那些地方做的不够好，便可以提出一个issue，当你把这些bug或者问题解决了，就可以close掉issue。</p>
-</li>
-</ul>
-<p><strong>④创建仓库/创建新项目</strong></p>
-<p>主页左上角位置①处创建新仓库。</p>
-<div align="center">
-<img src="/2019/07/19/Git/creat.png" align="center" style="zoom:100%">
-</div>
-
-<h6 id="①仓库名称"><a href="#①仓库名称" class="headerlink" title="①仓库名称"></a>①仓库名称</h6><h6 id="②项目描述"><a href="#②项目描述" class="headerlink" title="②项目描述"></a>②项目描述</h6><h6 id="③创建一个README说明文件，用来详细描述项目。"><a href="#③创建一个README说明文件，用来详细描述项目。" class="headerlink" title="③创建一个README说明文件，用来详细描述项目。"></a>③创建一个README说明文件，用来详细描述项目。</h6><h6 id="④点击创建完成"><a href="#④点击创建完成" class="headerlink" title="④点击创建完成"></a>④点击创建完成</h6><div align="center">
-<img src="/2019/07/19/Git/creat1.png" align="center" style="zoom:80%">
-</div>
-
-
-
-<p><strong>⑤仓库主页</strong></p>
-<div align="center">
-<img src="/2019/07/19/Git/set.png" align="center" style="zoom:80%">
-</div>
-
-<ol>
-<li>用户名/仓库名</li>
-<li>新建issue</li>
-<li>关注/收藏/复制克隆项目</li>
-<li>编辑项目描述</li>
-<li>创建新文件/上传文件/查找仓库文件</li>
-<li>直接下载或者通过Git克隆项目</li>
-</ol>
-<hr>
-<h2 id="二、Git又是个啥"><a href="#二、Git又是个啥" class="headerlink" title="二、Git又是个啥"></a>二、Git又是个啥</h2><p><strong>一句话总结：通过Git管理github项目代码</strong></p>
-<p><strong>①Git<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">安装</a></strong></p>
-<p>强烈建议使用Git自身的命令行操作。一路默认安装，下一步。</p>
-<p><strong>②认识Git</strong></p>
-
+        
       
 
       
@@ -357,261 +302,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>整个Hexo个人博客搭建过程约10~20分钟，快速又便捷。</strong><br>使用github搭建博客好处：</p>
+        <h1 id="手把手教你在Windows环境下，Git-Hexo-搭建博客"><a href="#手把手教你在Windows环境下，Git-Hexo-搭建博客" class="headerlink" title="手把手教你在Windows环境下，Git + Hexo 搭建博客"></a>手把手教你在Windows环境下，Git + Hexo 搭建博客</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>整个Hexo个人博客搭建过程约10~20分钟，快速又便捷。</strong><br>使用github搭建博客好处：</p>
 <ul>
-<li>静态文件访问快</li>
-<li>完全免费，不需要服务器不需要后台。</li>
-<li>可自行绑定域名。</li>
-<li>博客内容可以轻松打包、转移、发布到其他平台。</li>
-</ul>
-<h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><ol>
-<li><p><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">下载Git</a></p>
-<p>根据操作系统自动下载对应版本，具体安装过程请查看。（注意请选择：）</p>
-<div align="center">
-<img src="/2019/07/17/1-1/Git.png" align="center" style="zoom:100%">
-</div>
-
-<blockquote>
-<p>注意：安装Git时使用命令行功能，不建议使用图形界面。图形界面功能远远小于命令行功能。</p>
-<p>Git使用教程查看博客：GitHub是个啥，Git又是个啥？（含Git安装教程及GitHub使用教程）</p>
-</blockquote>
+<li><p>静态文件访问快</p>
 </li>
-<li><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载node.js</a></p>
+<li><p>完全免费，不需要服务器不需要后台。</p>
 </li>
-</ol>
-<div align="center">
-<img src="/2019/07/17/1-1/nodejs.png" align="center" style="zoom:50%">
-</div>
-
-<blockquote>
-<p>​    一路下一步默认安装，安装完成后有两个组件：Node.js和npm包管理器。</p>
-</blockquote>
-<ol start="3">
-<li><p><a href="https://github.com/" target="_blank" rel="noopener">注册github账号</a></p>
-<p>按照步骤操作即可。</p>
+<li><p>可自行绑定域名。</p>
 </li>
-</ol>
-<hr>
-<h2 id="二、创建github仓库"><a href="#二、创建github仓库" class="headerlink" title="二、创建github仓库"></a>二、创建github仓库</h2><ol>
-<li><p>新建repository（仓库），命名<strong>xxxx.github.io</strong>（xxx是你的用户名），然后确定创建仓库。</p>
-<div align="center">
-<img src="/2019/07/17/1-1/repository.png" align="center" style="zoom:60%">
-</div>
-
-
-
-</li>
-</ol>
-<hr>
-<h2 id="三、使用Git安装Hexo"><a href="#三、使用Git安装Hexo" class="headerlink" title="三、使用Git安装Hexo"></a>三、使用Git安装Hexo</h2><p>在工作目录下，如 F:\blog 可任意工作目录，右键选择Git bash here，使用Git命令行</p>
-<div align="center">
-<img src="/2019/07/17/1-1/bash.png" align="center" style="zoom:80%">
-</div>
-
-
-
-<p>如图所示</p>
-<div align="center">
-<img src="/2019/07/17/1-1/git1.png" align="center" style="zoom:100%">
-</div>
-
-<blockquote>
-<p>操作类似命令行控制符cmd</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ node -v  //查看node版本，确认是否安装好。</span><br><span class="line">v10.16.0</span><br><span class="line">$ npm -v   //查看npm版本，确认是否安装好。</span><br><span class="line">6.9.0</span><br></pre></td></tr></table></figure>
-
-<p>Hexo博客需要Node.js框架支持</p>
-<ol start="2">
-<li><p><strong>安装cnpm</strong></p>
-<p>借助<strong>npm</strong>包管理器进行安装，由于某些不可抗力，镜像源速度比较慢。</p>
-<p>所以利用 <strong>npm</strong>安装 <strong>cnpm</strong></p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>-g 全局安装  Git命令行安装没有提示，需要耐心等待2~3分钟。</p>
-</blockquote>
-<ul>
-<li><input disabled type="checkbox"> <strong>如果发生错误，只需删除工作目录所有文件，再按照步骤进行搭建。</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm	//确认工具是否安装好</span><br><span class="line">$ cnpm -v   //查看cnpm版本</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/cnpm.png" align="center" style="zoom:50%">
-</div>
-
-<p>3.<strong>安装Hexo博客框架</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm insatll -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>安装需要耐心等待2~3分钟。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v   //验证hexo是否安装好</span><br><span class="line">hexo: 3.9.0</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/hexo.png" align="center" style="zoom:80%">
-</div>
-
-
-
-<hr>
-<h2 id="四、使用Hexo搭建博客"><a href="#四、使用Hexo搭建博客" class="headerlink" title="四、使用Hexo搭建博客"></a>四、使用Hexo搭建博客</h2><p>一些基本Git命令行命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ pwd   //查看当前工作目录路径</span><br><span class="line">/f/blog</span><br><span class="line"></span><br><span class="line">$ mkdir   //新建文件夹</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/new.png" align="center" style="zoom:80%">
-</div>
-
-
-
-<ul>
-<li><input disabled type="checkbox"> <strong>再次重申：如果过程中出现错误，只需删除工作目录 /f/blog 所有文件，再按照步骤重新搭建。</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd new   //进入该“new&quot;文件夹</span><br><span class="line">$ ls -l   //查看当前工作目录文件列表</span><br><span class="line">$ cd ..  //退出当前工作目录</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-初始化Hexo"><a href="#1-初始化Hexo" class="headerlink" title="1.初始化Hexo"></a>1.初始化Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo inti   //初始化博客</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/init.png" align="center" style="zoom:80%">
-</div>
-
-<blockquote>
-<p>初始化需要耐心等待2~3分钟。</p>
-</blockquote>
-<p>安装成功提示</p>
-<div align="center">
-<img src="/2019/07/17/1-1/finish.png" align="center" style="zoom:80%">
-</div>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l   //查看当前工作目录文件列表</span><br></pre></td></tr></table></figure>
-
-<p>查看hexo为你生成了那些文件，这些文件是博客基础框架的内容。</p>
-<div align="center">
-<img src="/2019/07/17/1-1/shengcheng.png" align="center" style="zoom:80%">
-</div>
-
-
-
-<h3 id="2-搭建本地服务器预览"><a href="#2-搭建本地服务器预览" class="headerlink" title="2.搭建本地服务器预览"></a>2.搭建本地服务器预览</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/server.png" align="center" style="zoom:100%">
-</div>
-
-<p>复制网址 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 到浏览器，查看默认的博客主题界面。</p>
-<div align="center">
-<img src="/2019/07/17/1-1/blog1.png" align="center" style="zoom:50%">
-</div>
-
-<p>CTRL + C 终止当前命令</p>
-<hr>
-<h2 id="五、使用Hexo写博客"><a href="#五、使用Hexo写博客" class="headerlink" title="五、使用Hexo写博客"></a>五、使用Hexo写博客</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s   //在本地预览博客</span><br></pre></td></tr></table></figure>
-
-<p>温馨提示：写完一篇博客后，可以时不时本地预览一下效果如何。</p>
-<h3 id="1-新建一篇博客"><a href="#1-新建一篇博客" class="headerlink" title="1. 新建一篇博客"></a>1. 新建一篇博客</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n &apos;我的第一篇博客&apos;   //新建一篇博客文章</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/nblog.png" align="center" style="zoom:100%">
-</div>
-
-<p>博客文章默认为<strong>.md</strong>格式（markdown）</p>
-<p>进入该文件中查看博客文章</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd source/_posts  //进入该博客的目录</span><br><span class="line">$ ls -l   //查看当前目录的文件列表</span><br><span class="line">total 5</span><br><span class="line">-rw-r--r-- 1 PS 197609 864  7月 16 22:45 hello-world.md</span><br><span class="line">-rw-r--r-- 1 PS 197609  75  7月 16 22:57 我的第一篇博客文章.md</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/shengcheng2.png" align="center" style="zoom:100%">
-</div>
-
-
-
-<h3 id="2-编辑博客内容"><a href="#2-编辑博客内容" class="headerlink" title="2.编辑博客内容"></a>2.编辑博客内容</h3><h4 id="方法①"><a href="#方法①" class="headerlink" title="方法①"></a>方法①</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim 我的第一篇博客文章.md   //vim修改文件命令</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/blogc.png" align="center" style="zoom:50%">
-</div>
-
-<p><strong>可基于markdown格式进行内容编辑。</strong></p>
-<p>命令行修改文件基本语法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i   //插入模式，可以编辑文件。Esc退出插入模式。</span><br><span class="line">：wq   //保存并退出</span><br></pre></td></tr></table></figure>
-
-<h4 id="方法②"><a href="#方法②" class="headerlink" title="方法②"></a>方法②</h4><p>或者直接打开<strong>我的第一篇博客文章.md</strong>进行修改。</p>
-<blockquote>
-<p>推荐使用的markdown编辑器 <strong><a href="https://www.typora.io/#windows" target="_blank" rel="noopener">Typora</a></strong></p>
-<p>根据自己的系统选择合适的版本。</p>
-</blockquote>
-<h2 id="六、部署Hexo博客到GitHub"><a href="#六、部署Hexo博客到GitHub" class="headerlink" title="六、部署Hexo博客到GitHub"></a>六、部署Hexo博客到GitHub</h2><p>回到hexo工作目录： /f/blog/new。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cd ../..   //从 _post目录 回到 new 目录内</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/back.png" align="center" style="zoom:100%">
-</div>
-
-<h4 id="①三步走战略：博客编辑后及预览效果"><a href="#①三步走战略：博客编辑后及预览效果" class="headerlink" title="①三步走战略：博客编辑后及预览效果"></a><strong>①三步走战略</strong>：博客编辑后及预览效果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean   //清理Hexo数据库，更换主题时必须使用</span><br><span class="line">$ hexo g   //生成静态文件</span><br><span class="line">$ hexo s   //本地预览</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/sanbuzou.png" align="center" style="zoom:60%">
-</div>
-
-<p>复制网址 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 到浏览器，预览博客主题界面。</p>
-<div align="center">
-<img src="/2019/07/17/1-1/blog2.png" align="center" style="zoom:50%">
-</div>
-
-
-
-<h4 id="②部署到远端（GitHub上）"><a href="#②部署到远端（GitHub上）" class="headerlink" title="②部署到远端（GitHub上）"></a>②部署到远端（GitHub上）</h4><ol>
-<li>安装Git部署的插件</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-
-<div align="center">
-<img src="/2019/07/17/1-1/finish2.png" align="center" style="zoom:100%">
-</div>
-
-<blockquote>
-<p>安装需要耐心等待2~3分钟。</p>
-</blockquote>
-<ol start="2">
-<li>设置 <strong>_config.yml</strong> 文件</li>
-</ol>
-<div align="center">
-<img src="/2019/07/17/1-1/config.png" align="center" style="zoom:100%">
-</div>
-
-<p>打开Hexo初始化的文件：_config.yml，一直到最后，对文件进行修改</p>
-<p><strong>修改前：</strong></p>
-<div align="center">
-<img src="/2019/07/17/1-1/1.png" align="center" style="zoom:100%">
-</div>
-
-<p>输入内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo：xxxxx   //你的仓库地址</span><br><span class="line">  branch：master</span><br></pre></td></tr></table></figure>
-
-<p><strong>修改后：</strong></p>
-<div align="center">
-<img src="/2019/07/17/1-1/2.png" align="center" style="zoom:100%">
-</div>
-
-<p>仓库地址为刚才创建的<strong>仓库的SSH</strong>（不需要输入账号密码），如果选择HTTPS格式需要输入账号和密码，并不方便。</p>
-<div align="center">
-<img src="/2019/07/17/1-1/adress.png" align="center" style="zoom:100%">
-</div>
-
-
-
-<blockquote>
-<p>配置_config.yml文件时，每个：后面务必加空格。</p>
-</blockquote>
-<h4 id="③大功告成：最后一步，部署到远端"><a href="#③大功告成：最后一步，部署到远端" class="headerlink" title="③大功告成：最后一步，部署到远端"></a>③<strong>大功告成</strong>：最后一步，部署到远端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d   //部署到github，可以公开访问。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>部署到远端，需要5~10分钟才可以公开访问，访问地址就是<a href="https://your_user_name.github.io/" target="_blank" rel="noopener">https://your_user_name.github.io/</a></p>
-</blockquote>
-<hr>
-
+<li><p>博客内容可以轻松打包、转移、发布到其他平台。</p></li></ul>
+        
       
 
       
@@ -683,7 +383,7 @@
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
-		innerArchive: false,
+		innerArchive: true,
 		showTags: false
 	}
 </script>
@@ -700,6 +400,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
+      
+      
     
       
     
@@ -713,16 +415,73 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-        
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章 </a></li>
       
         
       
-      <li style="width: 100%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+        
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
   </div>
   <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            3、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
     
 
     
