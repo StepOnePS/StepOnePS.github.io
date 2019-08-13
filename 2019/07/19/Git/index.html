@@ -19,7 +19,18 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/19/Git/creat.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/19/Git/creat1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/19/Git/set.png">
-<meta property="og:updated_time" content="2019-08-09T10:23:25.119Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/GitInstall.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/finish.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/use.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/3tree.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/touch.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/add.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/clone.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/status1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/status2.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/status3.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/19/Git/log.png">
+<meta property="og:updated_time" content="2019-08-13T11:44:21.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
 <meta name="twitter:description" content="GitHub是个啥，Git又是个啥？（含GitHub新手教程及Git安装使用教程）一、GitHub是个啥？①使用GitHub能干什么？ 答：托管代码，托管代码，还是托管代码。 保证把你的代码托管的服服帖帖，尤其在版本更迭和修改与改进较多的时候特别适用。">
@@ -242,9 +253,134 @@
 </ol>
 <hr>
 <h2 id="二、Git又是个啥"><a href="#二、Git又是个啥" class="headerlink" title="二、Git又是个啥"></a>二、Git又是个啥</h2><p><strong>一句话总结：通过Git管理github项目代码</strong></p>
+<p><strong>Git是一种分布式版本控制系统</strong></p>
+<blockquote>
+<p>相对于传统的版本控制方式：手动添加文件</p>
+</blockquote>
 <p><strong>①Git<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">安装</a></strong></p>
-<p>强烈建议使用Git自身的命令行操作。一路默认安装，下一步。</p>
+<p>强烈建议使用Git自身的<strong>命令行操作</strong>。</p>
+<ul>
+<li><input disabled type="checkbox"> 命令行操作拥有Git的所有命令，且操作更迅速</li>
+</ul>
+<p>一路默认安装，下一步。</p>
+<p>此步骤选择选择第一项，使用Git自身的命令行。</p>
+<div align="center">
+<img src="/2019/07/19/Git/GitInstall.png" align="center" style="zoom:100%">
+</div>
+
+<p>最后完成安装。</p>
+<div align="center">
+<img src="/2019/07/19/Git/finish.png" align="center" style="zoom:100%">
+</div>
+
+
+
+<p>任意空白处右键，选择 <strong>Git Bash here</strong>，便可以调出Git命令行。</p>
+<div align="center">
+<img src="/2019/07/19/Git/use.png" align="center" style="zoom:80%">
+</div>
+
+
+
 <p><strong>②认识Git</strong></p>
+<p>目的：通过git管理github托管的项目代码。</p>
+<p>Git由三个部分组成，可以形象的记为三棵树。</p>
+ <div align="center">
+<img src="/2019/07/19/Git/3tree.png" align="center" style="zoom:80%">
+</div>
+
+<p><strong>工作区</strong>：添加、编辑、修改文件等操作。</p>
+<p><strong>Git仓库</strong>：最终确定的文件保存到仓库，成为一个版本。</p>
+<p><strong>暂存区</strong>:  暂存已经修改的文件，最后统一提交到Gi他仓库。</p>
+<ol>
+<li><p>Git记录的是什么？</p>
+<p>记录的是每一次版本变动的内容，将每个版本独立保存。</p>
+</li>
+</ol>
+<ul>
+<li><input disabled type="checkbox"> 已修改（modified）</li>
+<li><input disabled type="checkbox"> 已暂存（stagged）</li>
+<li><input disabled type="checkbox"> 已提交（committed）</li>
+</ul>
+<p><strong>③Git基础设置</strong></p>
+<ol>
+<li>设置用户名</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name&apos;用户名&apos;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>设置用户名邮箱</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email&apos;邮箱网址&apos;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>查看设置</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注释：global参数表示这台机器上所有的Git仓库都会使用这个配置。</p>
+</blockquote>
+<h3 id="三、使用Git"><a href="#三、使用Git" class="headerlink" title="三、使用Git"></a>三、使用Git</h3><h4 id="1-初始化一个新的Git仓库"><a href="#1-初始化一个新的Git仓库" class="headerlink" title="1. 初始化一个新的Git仓库"></a>1. 初始化一个新的Git仓库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. mkdir test #创建一个新文件夹“test”</span><br><span class="line"></span><br><span class="line">2. cd test</span><br><span class="line">   git init  #在文件夹内初始化Git（创建Git仓库）</span><br><span class="line">  </span><br><span class="line">3. touch test1.cpp  #向仓库添加一个文件“test1.cpp”，当然也可以在文件夹内右键生成文件</span><br></pre></td></tr></table></figure>
+
+ <div align="center">
+<img src="/2019/07/19/Git/touch.png" align="center" style="zoom:100%">
+</div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4. git add test1.cpp #添加文件到暂存区</span><br></pre></td></tr></table></figure>
+
+ <div align="center">
+<img src="/2019/07/19/Git/add.png" align="center" style="zoom:80%">
+</div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5. git commit-m &apos;test1.cpp&apos; #将文件从暂存区提交到仓库</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>m’ XXXXX‘  在引号内可以描述你干了什么，比如 m ’提交了文件test1.cpp‘</p>
+</blockquote>
+<h4 id="2-使用Git管理远程仓库"><a href="#2-使用Git管理远程仓库" class="headerlink" title="2. 使用Git管理远程仓库"></a>2. 使用Git管理远程仓库</h4><p>目的：将本地仓库同步到git远程仓库，既能备份，也能事先代码共享集中化管理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. git push #将本地仓库提交到远程</span><br><span class="line"></span><br><span class="line">2. git clone 仓库地址 #将远程仓库（github对应的项目）复制到本地</span><br></pre></td></tr></table></figure>
+
+<p>在github项目上可以找到项目的地址。</p>
+ <div align="center">
+<img src="/2019/07/19/Git/clone.png" align="center" style="zoom:80%">
+</div>
+
+
+
+<h4 id="3-其他命令"><a href="#3-其他命令" class="headerlink" title="3. 其他命令"></a>3. 其他命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. git status #查看工作状态和历史提交</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><input disabled type="checkbox"> <p>仓库只有一个分支，且仓库没有文件的情况。</p>
+<div align="center">
+<img src="/2019/07/19/Git/status1.png" align="center" style="zoom:100%">
+</div>
+</li>
+<li><input disabled type="checkbox"> <p>仓库只有一个分支，且仓库有文件，但还未提交。</p>
+<div align="center">
+<img src="/2019/07/19/Git/status2.png" align="center" style="zoom:100%">
+</div>
+
+</li>
+</ul>
+<p>此时使用 git reset HEAD 恢复文件暂存区状态（也就是先前工作区状态）</p>
+<ul>
+<li><input disabled type="checkbox"> <p>仓库只有一个分支，仓库有文件，但文件修改，还未提交到暂存区。</p>
+ <div align="center">
+<img src="/2019/07/19/Git/status3.png" align="center" style="zoom:100%">
+</div>
+
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. git log #查看历史提交</span><br></pre></td></tr></table></figure>
+
+ <div align="center">
+<img src="/2019/07/19/Git/log.png" align="center" style="zoom:80%">
+</div>
+
+<blockquote>
+<p>commit 后面的数字是提交版本的ID，这个ID是唯一的。</p>
+</blockquote>
 
       
 
@@ -381,7 +517,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub是个啥，Git又是个啥？（含GitHub新手教程及Git安装使用教程）"><span class="toc-number">1.</span> <span class="toc-text">GitHub是个啥，Git又是个啥？（含GitHub新手教程及Git安装使用教程）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、GitHub是个啥？"><span class="toc-number">1.1.</span> <span class="toc-text">一、GitHub是个啥？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#①仓库名称"><span class="toc-number">1.1.0.0.0.1.</span> <span class="toc-text">①仓库名称</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#②项目描述"><span class="toc-number">1.1.0.0.0.2.</span> <span class="toc-text">②项目描述</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#③创建一个README说明文件，用来详细描述项目。"><span class="toc-number">1.1.0.0.0.3.</span> <span class="toc-text">③创建一个README说明文件，用来详细描述项目。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#④点击创建完成"><span class="toc-number">1.1.0.0.0.4.</span> <span class="toc-text">④点击创建完成</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Git又是个啥"><span class="toc-number">1.2.</span> <span class="toc-text">二、Git又是个啥</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub是个啥，Git又是个啥？（含GitHub新手教程及Git安装使用教程）"><span class="toc-number">1.</span> <span class="toc-text">GitHub是个啥，Git又是个啥？（含GitHub新手教程及Git安装使用教程）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、GitHub是个啥？"><span class="toc-number">1.1.</span> <span class="toc-text">一、GitHub是个啥？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#①仓库名称"><span class="toc-number">1.1.0.0.0.1.</span> <span class="toc-text">①仓库名称</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#②项目描述"><span class="toc-number">1.1.0.0.0.2.</span> <span class="toc-text">②项目描述</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#③创建一个README说明文件，用来详细描述项目。"><span class="toc-number">1.1.0.0.0.3.</span> <span class="toc-text">③创建一个README说明文件，用来详细描述项目。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#④点击创建完成"><span class="toc-number">1.1.0.0.0.4.</span> <span class="toc-text">④点击创建完成</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Git又是个啥"><span class="toc-number">1.2.</span> <span class="toc-text">二、Git又是个啥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三、使用Git"><span class="toc-number">1.2.1.</span> <span class="toc-text">三、使用Git</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-初始化一个新的Git仓库"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">1. 初始化一个新的Git仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-使用Git管理远程仓库"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2. 使用Git管理远程仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-其他命令"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">3. 其他命令</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
