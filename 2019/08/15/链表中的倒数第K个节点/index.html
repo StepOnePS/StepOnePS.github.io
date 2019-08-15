@@ -6,24 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PzSgar</title>
+  <title>链表中的倒数第K个节点 | PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。  由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的基本操作执">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PzSgar">
-<meta property="og:url" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="链表中的倒数第K个节点">
+<meta property="og:url" content="http://yoursite.com/2019/08/15/链表中的倒数第K个节点/index.html">
 <meta property="og:site_name" content="PzSgar">
-<meta property="og:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。  由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的基本操作执">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/time.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/tre.png">
-<meta property="og:updated_time" content="2019-08-15T07:02:19.785Z">
+<meta property="og:updated_time" content="2019-08-15T07:21:49.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PzSgar">
-<meta name="twitter:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。  由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的基本操作执">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png">
+<meta name="twitter:title" content="链表中的倒数第K个节点">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
   
@@ -167,123 +159,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-时间复杂度O-logn-之来龙去脉" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-链表中的倒数第K个节点" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      链表中的倒数第K个节点
+    </h1>
+  
+
+        
+        <a href="/2019/08/15/链表中的倒数第K个节点/" class="archive-article-date">
+  	<time datetime="2019-08-15T07:21:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="时间复杂度O-logn-之来龙去脉"><a href="#时间复杂度O-logn-之来龙去脉" class="headerlink" title="时间复杂度O(logn)之来龙去脉"></a>时间复杂度O(logn)之来龙去脉</h1><h2 id="一、时间复杂度是什么？"><a href="#一、时间复杂度是什么？" class="headerlink" title="一、时间复杂度是什么？"></a>一、时间复杂度是什么？</h2><p>首先明确一个概念，衡量代码和算法的两个比较重要的指标是：</p>
-<ul>
-<li><input disabled type="checkbox"> <strong>运行时间</strong></li>
-<li><input disabled type="checkbox"> <strong>占用空间</strong></li>
-</ul>
-<blockquote>
-<p>而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。</p>
-</blockquote>
-<p>由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的<strong>基本操作执行次数</strong>。</p>
-<ul>
-<li><input disabled type="checkbox"> 时间复杂度简单来说就是<strong>时间–问题（数据）规模的关系。</strong></li>
-</ul>
-<div align="center">
-<img src="/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png" align="center" style="zoom:60%">
-</div>
-
- <a id="more"></a>
-
-<ul>
-<li><input disabled type="checkbox"> <p><strong>基本操作执行次数</strong></p>
-<ol>
-<li>执行次数是线性的。</li>
-</ol>
-<p>$$<br>f（n）=n<br>$$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> test（<span class="keyword">int</span> n）</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"我执行一次"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ol start="2">
-<li><p>执行次数是对数的(指数增长)<br>$$<br>f（n）=logn<br>$$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> test（<span class="keyword">int</span> n）</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i*=<span class="number">2</span>)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"我执行一次"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行次数是常量<br>$$<br>f（n）=1<br>$$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> test（<span class="keyword">int</span> n）</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"我执行一次"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行次数是一个多项式<br>$$<br>f（n）=n^2<br>$$</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> test（<span class="keyword">int</span> n）</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>, i &lt; n; i++)\</span><br><span class="line">	<span class="keyword">for</span>(j = <span class="number">0</span>, j &lt; n, j++)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"我执行一次"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<ul>
-<li><input disabled type="checkbox"> <strong>渐进时间复杂度</strong></li>
-</ul>
-<p>官方概念：</p>
-<p>​    若存在函数 f（n），使得当n趋近于无穷大时，T（n）/ f（n）的极限值为不等于零的常数，则称 f（n）是T（n）的<strong>同数量级函数</strong>。</p>
-<p>如果对高数比较熟悉，就是两个函数相除，取 n → ∞，为1，则两个函数同数量级，也就是<strong>等价无穷大</strong>。</p>
-<ul>
-<li><input disabled type="checkbox"> <strong>如何推导出时间复杂度呢？有如下几个原则：</strong></li>
-</ul>
-<ol>
-<li><p>如果运行时间是常数量级，用常数1表示；</p>
-</li>
-<li><p>只保留时间函数中的最高阶项；</p>
-</li>
-<li><p>如果最高阶项存在，则省去最高阶项前面的系数</p>
-<div align="center">
-<img src="/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png" align="center" style="zoom:80%">
-</div>
-
-<p> 一般时间复杂度考虑最差情况。</p>
-</li>
-</ol>
-<ul>
-<li><input disabled type="checkbox"> <strong>时间复杂度比较</strong><br>$$<br>O（1）&lt; O（logn）&lt; O（n）&lt; O（n^2）<br>$$<br>还有编程问题中其他常见的时间复杂度：<br>$$<br>O（nlogn）, O（n^3）, O（m*n），O（2^n），O（n！）<br>$$</li>
-</ul>
-<h2 id="二、时间复杂度的重要性"><a href="#二、时间复杂度的重要性" class="headerlink" title="二、时间复杂度的重要性"></a>二、时间复杂度的重要性</h2><p>如果算法A的时间复杂度是 f(n) = n；</p>
-<p>算法B的时间复杂度是 f(n) = n^2；</p>
-<p>随着输入规模的增长，可以看到两种算法的时间快慢。</p>
-<div align="center">
-<img src="/2019/08/13/时间复杂度O-logn-之来龙去脉/time.png" align="center" style="zoom:15%">
-</div>
-
-<p>明显看到，n值很小的时候，两种算法时间优劣并不明显，但随着n值的增大，达到十万、百万时，算法A的优势越来越明显，两种算法时间差距也越来越大，这就是不同时间复杂度带来的差距。</p>
-<ul>
-<li><input disabled type="checkbox"> <strong>TIPS：在数量级较低的时候，不同时间复杂度的算法并无明显差别，一般选择简洁易懂的算法。</strong></li>
-<li><input disabled type="checkbox"> <strong>TIPS：只有当n足够大的时候，不同级别的时间复杂度才有意义。</strong></li>
-</ul>
-<h2 id="三、O-logn-的时间复杂度由来。"><a href="#三、O-logn-的时间复杂度由来。" class="headerlink" title="三、O(logn)的时间复杂度由来。"></a>三、O(logn)的时间复杂度由来。</h2><p><strong>1.先看一个例子：</strong></p>
-<p>小明有一条长为64m的绳子，小明每天用掉剩余绳子的一半，也就是第一天用32m，第二天用16m，第三天用8m，……，那么需要多少天小明的绳子只剩下1m？</p>
-<p>答：我们换一种解释方法，也就是数字64不断除以2，除几次以后的结果等于1。</p>
-<p>也就是2的多少次方等于64。（log的底数是2）<br>$$<br>2^x=64<br>$$</p>
-<p>$$<br>x=log64=log(2^6)=6<br>$$</p>
-<p>所以当速度不是以倍数递增，而是以<strong>指数递增</strong>的时候，会出现 <strong>log</strong> 的时间复杂度。</p>
-<p><strong>2.再来看一遍这个函数。</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> test（<span class="keyword">int</span> n）</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i*=<span class="number">2</span>)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"我执行一次"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于每次 i*2 之后，就距离n更近一步，假设有x个2相乘后大于或等于n，则会退出循环。</p>
-<p>所以假设循环次数为x，则循环满足条件，2^x &lt; n;</p>
-<p>所以 x = log(2)(n)，所以时间复杂度为 O(log(2)(n))，也就是O(log n)</p>
-<p><strong>3.看一个新函数。</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> n)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) </span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        <span class="keyword">return</span> test(n - <span class="number">1</span>) + test(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>显然这是个递归函数：<br>$$<br>f（1） = 1—(n = 1);<br>$$</p>
-<p>$$<br>f（n） = f(n - 1) +f(n - 2)—(n &gt; 1);<br>$$</p>
-<p>通过归纳证明法可证明:</p>
-<p>当 n &gt;= 1 时 T(n) &lt; (5/3)^n，同时当 n &gt; 4 时 T(n) &gt;= (3/2)^n。<br>所以该方法的时间复杂度为<br>$$<br>O((5/3)^n)，简化后为 O(2^n)。<br>$$<br>换种方法，将其流程画出来发现是一颗完全二叉树。</p>
-<div align="center">
-<img src="/2019/08/13/时间复杂度O-logn-之来龙去脉/tre.png" align="center" style="zoom:80%">
-</div>
-
-<p>叶节点数为2^n-1,深度为n，根据最坏情况，时间复杂度为O（2^n）</p>
-<p>可见此函数所需的运行时间是以指数的速度增长的。</p>
-<h2 id="四、最坏情况与平均情况"><a href="#四、最坏情况与平均情况" class="headerlink" title="四、最坏情况与平均情况"></a>四、最坏情况与平均情况</h2><p>当查找一个有n个随机数字<strong>数组</strong>中的某个数字，最好的情况是第一个数字就是，那么算法的时间复杂度为O(1)，</p>
-<p>但也有可能这个数字就在最后一个位置，那么时间复杂度为O(n)。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> </span><br><span class="line">test（<span class="keyword">int</span>* a, <span class="keyword">int</span> n,<span class="keyword">int</span> &amp;num）</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>（a == null)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++) </span><br><span class="line">		<span class="keyword">if</span>(a[i] == num)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"找到了！"</span> &lt;&lt; i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"不存在！"</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> 平均运行时间是期望的运行时间，它出现在每个位置都是随机的，所以平均复杂度为O((1 + n) /2)，还是O(n)。</p>
-<p> <strong>最坏运行时间</strong>是一种保证。在应用中，这是一种最重要的需求，通常除非特别指定，我们提到的运行时间都是最</p>
-<p>坏情况的运行时间。</p>
-
+        
       
 
       
@@ -367,7 +263,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/15/链表中的倒数第K个节点/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -381,18 +277,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/15/面试/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/15/赋值运算符函数/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          面试
+          赋值运算符函数
         
       </div>
     </a>
   
   
-    <a href="/2019/07/19/我的第一篇博客文章/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇博客文章</div>
+    <a href="/2019/08/15/字符串转换整数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">字符串转换整数</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -419,7 +315,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#时间复杂度O-logn-之来龙去脉"><span class="toc-number">1.</span> <span class="toc-text">时间复杂度O(logn)之来龙去脉</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、时间复杂度是什么？"><span class="toc-number">1.1.</span> <span class="toc-text">一、时间复杂度是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、时间复杂度的重要性"><span class="toc-number">1.2.</span> <span class="toc-text">二、时间复杂度的重要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、O-logn-的时间复杂度由来。"><span class="toc-number">1.3.</span> <span class="toc-text">三、O(logn)的时间复杂度由来。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、最坏情况与平均情况"><span class="toc-number">1.4.</span> <span class="toc-text">四、最坏情况与平均情况</span></a></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
