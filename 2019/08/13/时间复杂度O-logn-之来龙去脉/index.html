@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | PzSgar</title>
+  <title>PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。  由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的基本操作执">
+<meta property="og:type" content="article">
 <meta property="og:title" content="PzSgar">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/index.html">
 <meta property="og:site_name" content="PzSgar">
+<meta property="og:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。  由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的基本操作执">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-13T15:04:51.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PzSgar">
+<meta name="twitter:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。  由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的基本操作执">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
   
@@ -158,124 +162,208 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-时间复杂度O-logn-之来龙去脉" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="时间复杂度O-logn-之来龙去脉"><a href="#时间复杂度O-logn-之来龙去脉" class="headerlink" title="时间复杂度O(logn)之来龙去脉"></a>时间复杂度O(logn)之来龙去脉</h1><h2 id="一、时间复杂度是什么？"><a href="#一、时间复杂度是什么？" class="headerlink" title="一、时间复杂度是什么？"></a>一、时间复杂度是什么？</h2><p>首先明确一个概念，衡量代码和算法的两个比较重要的指标是：</p>
+<ul>
+<li><input disabled type="checkbox"> <strong>运行时间</strong></li>
+<li><input disabled type="checkbox"> <strong>占用空间</strong></li>
+</ul>
+<blockquote>
+<p>而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。</p>
+</blockquote>
+<p>由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的<strong>基本操作执行次数</strong>。</p>
+<ul>
+<li><input disabled type="checkbox"> <p><strong>基本操作执行次数</strong></p>
+<ol>
+<li>执行次数是线性的。</li>
+</ol>
+<p>$$<br>f（n）=n<br>$$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> test（<span class="keyword">int</span> n）</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"我执行一次"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ol start="2">
+<li><p>执行次数是对数的(指数增长)<br>$$<br>f（n）=logn<br>$$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> test（<span class="keyword">int</span> n）</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i*=<span class="number">2</span>)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"我执行一次"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行次数是常量<br>$$<br>f（n）=1<br>$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void test（int n）</span><br><span class="line">&#123;</span><br><span class="line">cout &lt;&lt; &quot;我执行一次&quot;;</span><br><span class="line"></span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行次数是一个多项式<br>$$<br>f（n）=n^2<br>$$</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void test（int n）</span><br><span class="line">&#123;</span><br><span class="line">int i, j;</span><br><span class="line">for(i = 0, i &lt; n; i++)\</span><br><span class="line">	for(j = 0, j &lt; n, j++)</span><br><span class="line">		cout &lt;&lt; &quot;我执行一次&quot;;</span><br><span class="line"></span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<ul>
+<li><input disabled type="checkbox"> <strong>渐进时间复杂度</strong></li>
+</ul>
+<p>官方概念：</p>
+<p>​    若存在函数 f（n），使得当n趋近于无穷大时，T（n）/ f（n）的极限值为不等于零的常数，则称 f（n）是T（n）的<strong>同数量级函数</strong>。</p>
+<p>如果对高数比较熟悉，就是两个函数相除，取 n → ∞，为1，则两个函数同数量级，也就是<strong>等价无穷大</strong>。</p>
+<ul>
+<li><input disabled type="checkbox"> <strong>如何推导出时间复杂度呢？有如下几个原则：</strong></li>
+</ul>
+<ol>
+<li>如果运行时间是常数量级，用常数1表示；</li>
+<li>只保留时间函数中的最高阶项；</li>
+<li>如果最高阶项存在，则省去最高阶项前面的系数</li>
+</ol>
+<ul>
+<li><input disabled type="checkbox"> <strong>时间复杂度比较</strong><br>$$<br>O（1）&lt; O（logn）&lt; O（n）&lt; O（n^2）<br>$$<br>还有编程问题中其他常见的时间复杂度：<br>$$<br>O（nlogn）, O（n^3）, O（m*n），O（2^n），O（n！）<br>$$</li>
+</ul>
+<h2 id="二、时间复杂度的重要性"><a href="#二、时间复杂度的重要性" class="headerlink" title="二、时间复杂度的重要性"></a>二、时间复杂度的重要性</h2>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>恭喜你，投喂成功！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/13/时间复杂度O-logn-之来龙去脉/" class="archive-article-date">
-  	<time datetime="2019-08-13T11:49:13.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/19/我的第一篇博客文章/" class="archive-article-date">
-  	<time datetime="2019-07-19T13:26:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/19/我的第一篇博客文章/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇博客文章</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/19/我的第一篇博客文章/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#时间复杂度O-logn-之来龙去脉"><span class="toc-number">1.</span> <span class="toc-text">时间复杂度O(logn)之来龙去脉</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、时间复杂度是什么？"><span class="toc-number">1.1.</span> <span class="toc-text">一、时间复杂度是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、时间复杂度的重要性"><span class="toc-number">1.2.</span> <span class="toc-text">二、时间复杂度的重要性</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/19/Git/" class="archive-article-date">
-  	<time datetime="2019-07-19T10:01:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/19/Git/">Git</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/17/1-1/" class="archive-article-date">
-  	<time datetime="2019-07-17T04:15:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/17/1-1/">手把手教你在Windows环境下，Git + Hexo 搭建博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -301,8 +389,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
