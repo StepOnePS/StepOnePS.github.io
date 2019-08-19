@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | PzSgar</title>
+  <title>PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: 点是否在三角形内date: 2019-08-19 22:01:45tags: 给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内 给定三角形ABC和一点P(x, y, z)，判断点P是是否在ABC内，给出思路并手写代码  根据面积法，如果P在三角形ABC内，那么三角形ABP的面积+三角形BCP的面积+三角形ACP的面积应该等于三角形ABC的面积。算法如下：">
+<meta property="og:type" content="article">
 <meta property="og:title" content="PzSgar">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/19/点是否在三角形内/index.html">
 <meta property="og:site_name" content="PzSgar">
+<meta property="og:description" content="title: 点是否在三角形内date: 2019-08-19 22:01:45tags: 给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内 给定三角形ABC和一点P(x, y, z)，判断点P是是否在ABC内，给出思路并手写代码  根据面积法，如果P在三角形ABC内，那么三角形ABP的面积+三角形BCP的面积+三角形ACP的面积应该等于三角形ABC的面积。算法如下：">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/08/19/点是否在三角形内/area.png">
+<meta property="og:updated_time" content="2019-08-19T14:34:55.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PzSgar">
+<meta name="twitter:description" content="title: 点是否在三角形内date: 2019-08-19 22:01:45tags: 给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内 给定三角形ABC和一点P(x, y, z)，判断点P是是否在ABC内，给出思路并手写代码  根据面积法，如果P在三角形ABC内，那么三角形ABP的面积+三角形BCP的面积+三角形ACP的面积应该等于三角形ABC的面积。算法如下：">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/19/点是否在三角形内/area.png">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
   
@@ -158,280 +164,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-点是否在三角形内" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: 点是否在三角形内<br>date: 2019-08-19 22:01:45<br>tags:</p>
+<h1 id="给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内"><a href="#给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内" class="headerlink" title="给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内"></a>给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内</h1><blockquote>
+<p>给定三角形ABC和一点P(x, y, z)，判断点P是是否在ABC内，给出思路并手写代码</p>
+</blockquote>
+<p>根据面积法，如果P在三角形ABC内，那么三角形ABP的面积+三角形BCP的面积+三角形ACP的面积应该等于三角形ABC的面积。算法如下：</p>
+ <a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> ABS_FLOAT_0 <span class="number">0.0001</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pointFloat</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">float</span> x;</span><br><span class="line">    <span class="keyword">float</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">GetTriangleArea</span><span class="params">(<span class="keyword">const</span> pointFloat pt0, <span class="keyword">const</span> pointFloat pt1, <span class="keyword">const</span> pointFloat pt2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    pointFloat AB, BC;</span><br><span class="line">    AB.x = pt1.x - pt0.x;</span><br><span class="line">    AB.y = pt1.y - pt0.y;</span><br><span class="line">    BC.x = pt2.x - pt1.x</span><br><span class="line">    BC.y = pt2.y - pt1.y;</span><br><span class="line"> 	<span class="keyword">return</span> <span class="built_in">fabs</span>((AB.x * bc.y - AB.y * BC.x)) / <span class="number">2.0f</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isInTriangle</span><span class="params">(<span class="keyword">const</span> pointFloat p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> SABC, SABP, SACP, SBCP;</span><br><span class="line">    SABC = GetTriangleSquar(A, B, C);</span><br><span class="line">    SABP = GetTriangleSquar(A, B, P);</span><br><span class="line">    SACP = GetTriangleSquar(A, C, P);</span><br><span class="line">    SBCP = GetTriangleSquar(B, C, P);</span><br><span class="line">    <span class="keyword">float</span> Ssum = SABC + SABP + SACP + SBCP;</span><br><span class="line">    <span class="keyword">if</span>((-ABS_FLOAT_ &lt; (Ssum - SABC)) &amp;&amp; (ABS_FLOAT_0) &gt; (Ssum -SABC))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><input disabled type="checkbox"> <p><strong>求面积公式：</strong></p>
+<p>  如何求平面中三角形的面积？这个可以使用叉乘法来实现，即S(A,B,C)为向量AB叉乘AC所得向量模的1/2，再对该值求绝对值就是三角形ABC的面积。</p>
+</li>
+<li><input disabled type="checkbox"> <p><strong>叉乘法：</strong>（向量的向量积）行列式<br>$$<br>a（x1， y1）,   b(x2, y2)<br>$$</p>
+<p>$$<br>a · b =（x1<em>y2 -y1</em>x2)<br>$$</p>
+</li>
+</ul>
+<div align="center">
+<img src="/2019/08/19/点是否在三角形内/area.png" align="center" style="zoom:100%">
+</div>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>恭喜你，投喂成功！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/19/点是否在三角形内/" class="archive-article-date">
-  	<time datetime="2019-08-19T14:01:45.699Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/19/点是否在三角形内/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/19/数组中重复的数字/" class="archive-article-date">
-  	<time datetime="2019-08-19T07:40:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/19/数组中重复的数字/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数组中重复的数字</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内"><span class="toc-number">1.</span> <span class="toc-text">给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/19/数组中重复的数字/">数组中重复的数字</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/15/赋值运算符函数/" class="archive-article-date">
-  	<time datetime="2019-08-15T07:58:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/15/赋值运算符函数/">赋值运算符函数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/15/链表中的倒数第K个节点/" class="archive-article-date">
-  	<time datetime="2019-08-15T07:21:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/15/链表中的倒数第K个节点/">链表中的倒数第K个节点</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/15/字符串转换整数/" class="archive-article-date">
-  	<time datetime="2019-08-15T07:20:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/15/字符串转换整数/">字符串转换整数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/15/面试/" class="archive-article-date">
-  	<time datetime="2019-08-15T07:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/15/面试/">面试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/13/时间复杂度O-logn-之来龙去脉/" class="archive-article-date">
-  	<time datetime="2019-08-13T11:49:13.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/19/我的第一篇博客文章/" class="archive-article-date">
-  	<time datetime="2019-07-19T13:26:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/19/我的第一篇博客文章/">我的第一篇博客文章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/19/Git/" class="archive-article-date">
-  	<time datetime="2019-07-19T10:01:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/19/Git/">Git</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/17/1-1/" class="archive-article-date">
-  	<time datetime="2019-07-17T04:15:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/17/1-1/">手把手教你在Windows环境下，Git + Hexo 搭建博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -457,8 +360,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

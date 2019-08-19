@@ -160,6 +160,58 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-点是否在三角形内" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: 点是否在三角形内<br>date: 2019-08-19 22:01:45<br>tags:</p>
+<h1 id="给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内"><a href="#给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内" class="headerlink" title="给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内"></a>给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内</h1><blockquote>
+<p>给定三角形ABC和一点P(x, y, z)，判断点P是是否在ABC内，给出思路并手写代码</p>
+</blockquote>
+<p>根据面积法，如果P在三角形ABC内，那么三角形ABP的面积+三角形BCP的面积+三角形ACP的面积应该等于三角形ABC的面积。算法如下：</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/19/点是否在三角形内/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数组中重复的数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -182,8 +234,27 @@
       
         <h1 id="数组中重复的数字"><a href="#数组中重复的数字" class="headerlink" title="数组中重复的数字"></a>数组中重复的数字</h1><blockquote>
 <p>题目一：找出数组中重复的数字</p>
-<p>在一个长度为n的数组里的所有数字都在0~~n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请超出数组中任意一个重复的数字。例如，如果输入长为为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
+<p>在一个长度为n的数组里的所有数字都在0~~n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请超出数组中<strong>任意一个</strong>重复的数字。例如，如果输入长为为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
+<p>ps：读题很关键。</p>
 </blockquote>
+<ul>
+<li><input disabled type="checkbox"> <p>暴力法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">findRepeat</span><span class="params">(<span class="keyword">int</span>* a,<span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">if</span>(a == null || len &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        <span class="keyword">if</span>(Repeat(a, len, i))</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d,a[i]"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Repeat</span><span class="params">(<span class="keyword">int</span>* a,<span class="keyword">int</span> len, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">bool</span> a = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        <span class="keyword">if</span>(i != b &amp;&amp; a[b] == a [i])</span><br><span class="line">            a = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> a;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><input disabled type="checkbox"> <p>排序法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">findRepeat_V2</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,t;</span><br><span class="line">    <span class="keyword">if</span>(a == null||len &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    qucickSort(a);</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i] == a[i+<span class="number">1</span>])</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d,a[i]"</span>);</span><br><span class="line">        <span class="keyword">while</span>(a[i] == a[i+<span class="number">1</span>])</span><br><span class="line">            i++;</span><br><span class="line">    &#125;</span><br><span class="line">              </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><input disabled type="checkbox"> <p>哈希表</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">findRepeat_V3</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a == <span class="literal">nullptr</span> || len &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    	<span class="keyword">if</span>(a[i] &lt; <span class="number">0</span> || a[i] &gt;= len <span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span>* b = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        a[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        b[a[i]] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">        <span class="keyword">if</span>(b[a[i]] == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; a[i];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><input disabled type="checkbox"> <p>按照题目特性，<strong>在一个长度为n的数组里的所有数字都在0~~n-1的范围内</strong>。</p>
+</li>
+</ul>
 
       
 
