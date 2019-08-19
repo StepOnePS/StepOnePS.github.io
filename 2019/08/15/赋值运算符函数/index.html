@@ -8,14 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>赋值运算符函数 | PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="赋值运算符函数 题目： 如下为类型CMyString的声明，请为该类型添加赋值运算符函数。 1234567891011&amp;gt; class&amp;gt; &amp;#123;&amp;gt; public:&amp;gt;     CMyString(char* pData = nullptr);&amp;gt;     CMyString(const CMyString&amp;amp; str);&amp;gt;     ~CMyString(v">
+<meta property="og:type" content="article">
 <meta property="og:title" content="赋值运算符函数">
 <meta property="og:url" content="http://yoursite.com/2019/08/15/赋值运算符函数/index.html">
 <meta property="og:site_name" content="PzSgar">
+<meta property="og:description" content="赋值运算符函数 题目： 如下为类型CMyString的声明，请为该类型添加赋值运算符函数。 1234567891011&amp;gt; class&amp;gt; &amp;#123;&amp;gt; public:&amp;gt;     CMyString(char* pData = nullptr);&amp;gt;     CMyString(const CMyString&amp;amp; str);&amp;gt;     ~CMyString(v">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-15T07:58:40.708Z">
+<meta property="og:updated_time" content="2019-08-19T07:31:42.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="赋值运算符函数">
+<meta name="twitter:description" content="赋值运算符函数 题目： 如下为类型CMyString的声明，请为该类型添加赋值运算符函数。 1234567891011&amp;gt; class&amp;gt; &amp;#123;&amp;gt; public:&amp;gt;     CMyString(char* pData = nullptr);&amp;gt;     CMyString(const CMyString&amp;amp; str);&amp;gt;     ~CMyString(v">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
   
@@ -179,7 +182,58 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="赋值运算符函数"><a href="#赋值运算符函数" class="headerlink" title="赋值运算符函数"></a>赋值运算符函数</h1><blockquote>
+<p><strong>题目：</strong></p>
+<p>如下为类型CMyString的声明，请为该类型添加赋值运算符函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">class</span></span></span><br><span class="line"><span class="class">&gt; &#123;</span></span><br><span class="line">&gt; <span class="keyword">public</span>:</span><br><span class="line">&gt;     CMyString(<span class="keyword">char</span>* pData = <span class="literal">nullptr</span>);</span><br><span class="line">&gt;     CMyString(<span class="keyword">const</span> CMyString&amp; str);</span><br><span class="line">&gt;     ~CMyString(<span class="keyword">void</span>);</span><br><span class="line">&gt;         </span><br><span class="line">&gt; <span class="keyword">private</span>:</span><br><span class="line">&gt;     <span class="keyword">char</span>* m_pDatya;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+ <a id="more"></a>
+
+<ul>
+<li><input disabled type="checkbox"> <strong>自行解答：(步骤1.2.3.4.5.6)</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">CMyString&amp; <span class="title">CMyString</span><span class="params">(<span class="keyword">const</span> CMyString&amp; str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tihs == &amp;str)</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">delete</span> []m_pData;</span><br><span class="line">    m_pData = <span class="literal">nullptr</span>;</span><br><span class="line">    </span><br><span class="line">    m_pData = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(str.m_pData) + <span class="number">1</span>] ;</span><br><span class="line">    <span class="built_in">strcpy</span>(m_pData, str.m_pData)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><input disabled type="checkbox"> <p><strong>要点</strong></p>
+<ol>
+<li><p>返回类型声明为<strong>引用</strong>，连续赋值（函数调用类型不符合：str1=str2=str3）；</p>
+</li>
+<li><p>return <strong>*this</strong>；</p>
+</li>
+<li><p>形参为常引用（否则实参到形参会再次调用复制构造函数，提高效率，const不会改变实参）；</p>
+</li>
+<li><p>释放实例本身的内存（内存泄漏）；</p>
+</li>
+<li><p>传入的参数和当前实例（*this）是不是同一实例。否则会释放传入参数的内存）；</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><input disabled type="checkbox"> <p><strong>经典解法</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CMyString&amp; CMyString::<span class="keyword">operator</span>=(<span class="keyword">const</span> CMyString&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> == &amp;str)</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">delete</span> []m_pDtata;</span><br><span class="line">    m_pData = <span class="literal">nullptr</span>;</span><br><span class="line">    </span><br><span class="line">	m_pData = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(str.m_pData) + <span class="number">1</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(m_pData, str.m_pData);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><input disabled type="checkbox"> <p><strong>考虑异常安全性</strong></p>
+<ol>
+<li>指针是否为空？判断；</li>
+<li>内存不足？抛出异常；</li>
+<li>内存不足，new char 抛出异常，m_pData将是一个空指针，这样非常容易崩溃，原来的实例也不再保持有效状态？</li>
+</ol>
+<p><strong>先用new分配新内容，再用delete释放已有内容，这样在分配成功之后再释放原来的内容，也就是当内存分配失败时我们也能确保实例不会被修改。</strong></p>
+<p><strong>或者先创建一个临时实例，再交换临时实例和原来的实例。</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CMyString&amp; CMyString::<span class="keyword">operator</span>(<span class="keyword">const</span> CMyString&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">this</span> != &amp;str)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">CMyString <span class="title">strTemp</span><span class="params">(str)</span></span>;</span><br><span class="line">        <span class="keyword">char</span>* pTemp = strTemp.m_pData;</span><br><span class="line">        strTemp.m_pData = m_pData;</span><br><span class="line">        m_pData = pTemp;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>利用CMyString的构造函数的new分配内存。</p>
+<p>如果由于内存不足抛出诸如bad_alloc等异常，并没有修改原来实例的状态，因此实例状态还是有效的，同时也保证了安全性。</p>
+</li>
+</ul>
+
       
 
       
@@ -277,6 +331,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/08/19/数组中重复的数字/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数组中重复的数字
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/08/15/链表中的倒数第K个节点/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">链表中的倒数第K个节点</div>
@@ -306,7 +369,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#赋值运算符函数"><span class="toc-number">1.</span> <span class="toc-text">赋值运算符函数</span></a></li></ol>
                     </div>
                 </span>
             </div>

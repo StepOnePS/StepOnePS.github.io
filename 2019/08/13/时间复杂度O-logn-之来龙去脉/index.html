@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。  由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的基本操作执">
+  <meta name="description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PzSgar">
 <meta property="og:url" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/index.html">
 <meta property="og:site_name" content="PzSgar">
-<meta property="og:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。  由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的基本操作执">
+<meta property="og:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/time.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/tre.png">
-<meta property="og:updated_time" content="2019-08-15T07:02:19.785Z">
+<meta property="og:updated_time" content="2019-08-18T04:47:00.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PzSgar">
-<meta name="twitter:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。  由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的基本操作执">
+<meta name="twitter:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。">
 <meta name="twitter:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
@@ -180,6 +180,8 @@
 <blockquote>
 <p>而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。</p>
 </blockquote>
+ <a id="more"></a>
+
 <p>由于运行环境和输入规模的影响，代码的绝对执行时间是无法估计的，但可以估计代码的<strong>基本操作执行次数</strong>。</p>
 <ul>
 <li><input disabled type="checkbox"> 时间复杂度简单来说就是<strong>时间–问题（数据）规模的关系。</strong></li>
@@ -187,8 +189,6 @@
 <div align="center">
 <img src="/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png" align="center" style="zoom:60%">
 </div>
-
- <a id="more"></a>
 
 <ul>
 <li><input disabled type="checkbox"> <p><strong>基本操作执行次数</strong></p>
