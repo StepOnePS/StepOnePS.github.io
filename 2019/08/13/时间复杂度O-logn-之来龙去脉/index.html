@@ -8,21 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。">
+  <meta name="description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用空间。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PzSgar">
 <meta property="og:url" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/index.html">
 <meta property="og:site_name" content="PzSgar">
-<meta property="og:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。">
+<meta property="og:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用空间。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/time.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/tre.png">
-<meta property="og:updated_time" content="2019-08-18T04:47:00.346Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/binarytree.jpg">
+<meta property="og:updated_time" content="2019-08-26T09:39:29.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PzSgar">
-<meta name="twitter:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。">
+<meta name="twitter:description" content="时间复杂度O(logn)之来龙去脉一、时间复杂度是什么？首先明确一个概念，衡量代码和算法的两个比较重要的指标是：   运行时间  占用空间   而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用空间。">
 <meta name="twitter:image" content="http://yoursite.com/2019/08/13/时间复杂度O-logn-之来龙去脉/need.png">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
@@ -178,7 +179,7 @@
 <li><input disabled type="checkbox"> <strong>占用空间</strong></li>
 </ul>
 <blockquote>
-<p>而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。</p>
+<p>而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用空间。</p>
 </blockquote>
  <a id="more"></a>
 
@@ -219,7 +220,7 @@
 </ul>
 <p>官方概念：</p>
 <p>​    若存在函数 f（n），使得当n趋近于无穷大时，T（n）/ f（n）的极限值为不等于零的常数，则称 f（n）是T（n）的<strong>同数量级函数</strong>。</p>
-<p>如果对高数比较熟悉，就是两个函数相除，取 n → ∞，为1，则两个函数同数量级，也就是<strong>等价无穷大</strong>。</p>
+<p>如果对高数比较熟悉，就是两个函数表达式相除，取 n → ∞，为1，则两个函数同数量级，也就是<strong>等价无穷大</strong>。</p>
 <ul>
 <li><input disabled type="checkbox"> <strong>如何推导出时间复杂度呢？有如下几个原则：</strong></li>
 </ul>
@@ -260,6 +261,7 @@
 <p><strong>2.再来看一遍这个函数。</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> test（<span class="keyword">int</span> n）</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i*=<span class="number">2</span>)</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"我执行一次"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>看循环次数</strong></p>
 <p>由于每次 i*2 之后，就距离n更近一步，假设有x个2相乘后大于或等于n，则会退出循环。</p>
 <p>所以假设循环次数为x，则循环满足条件，2^x &lt; n;</p>
 <p>所以 x = log(2)(n)，所以时间复杂度为 O(log(2)(n))，也就是O(log n)</p>
@@ -283,6 +285,21 @@
 <p> 平均运行时间是期望的运行时间，它出现在每个位置都是随机的，所以平均复杂度为O((1 + n) /2)，还是O(n)。</p>
 <p> <strong>最坏运行时间</strong>是一种保证。在应用中，这是一种最重要的需求，通常除非特别指定，我们提到的运行时间都是最</p>
 <p>坏情况的运行时间。</p>
+<h2 id="五、二分法查找的时间复杂度"><a href="#五、二分法查找的时间复杂度" class="headerlink" title="五、二分法查找的时间复杂度"></a>五、二分法查找的时间复杂度</h2><ul>
+<li><input disabled type="checkbox"> <strong>二叉树的性质：具有n个结点的完全二叉树的深度为[logn] + 1;</strong></li>
+</ul>
+<p>深度为k的满二叉树的结点数n，一定是2^k-1，所以倒退满二叉树的深度为k = log（n+1）。</p>
+<p>假设k为深度，同样深度完全二叉树的结点个数一定少于满二叉树的结点数2^k-1；但一定多余2^(k-1)-1；<br>$$<br>2^(k-1)-1&lt;n&lt;=2^k-1<br>$$<br>由于结点数n为整数，n&lt;=2^k-1，意味着 n&lt;2^k，n&gt;2^(k-1)-1，意味着n&gt;=2^(k-1)，所以<br>$$<br>2^(k-1)&lt;=n&lt;2^k<br>$$<br>两边取对数，得到<br>$$<br>k-1&lt;=logn&lt;k<br>$$<br>k作为深度也为整数，所以k=[logn]+1</p>
+<ul>
+<li><input disabled type="checkbox"> <p><strong>二分法查找绘制二叉树</strong></p>
+<div align="center">
+<img src="/2019/08/13/时间复杂度O-logn-之来龙去脉/binarytree.jpg" align="center" style="zoom:80%">
+</div>
+
+<p>如果查找的不是根结点，折半查找等于把静态有序查找表分成两个子树，查找结果只需要找其中的一半数据即可，然后继续折半查找。根据性质，n个结点的完全二叉树的深度为 [logn] + 1。虽然折半查找二叉树并不是完全二叉树，但可以推导出，最坏情况是查找到最底层关键字或者查找失败次数为 [logn] + 1。</p>
+<p>所以折半查找的时间复杂度为O(logn)。</p>
+</li>
+</ul>
 
       
 
@@ -381,11 +398,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/15/面试/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/15/字符串转换整数/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          面试
+          字符串转换整数
         
       </div>
     </a>
@@ -419,7 +436,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#时间复杂度O-logn-之来龙去脉"><span class="toc-number">1.</span> <span class="toc-text">时间复杂度O(logn)之来龙去脉</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、时间复杂度是什么？"><span class="toc-number">1.1.</span> <span class="toc-text">一、时间复杂度是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、时间复杂度的重要性"><span class="toc-number">1.2.</span> <span class="toc-text">二、时间复杂度的重要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、O-logn-的时间复杂度由来。"><span class="toc-number">1.3.</span> <span class="toc-text">三、O(logn)的时间复杂度由来。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、最坏情况与平均情况"><span class="toc-number">1.4.</span> <span class="toc-text">四、最坏情况与平均情况</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#时间复杂度O-logn-之来龙去脉"><span class="toc-number">1.</span> <span class="toc-text">时间复杂度O(logn)之来龙去脉</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、时间复杂度是什么？"><span class="toc-number">1.1.</span> <span class="toc-text">一、时间复杂度是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、时间复杂度的重要性"><span class="toc-number">1.2.</span> <span class="toc-text">二、时间复杂度的重要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、O-logn-的时间复杂度由来。"><span class="toc-number">1.3.</span> <span class="toc-text">三、O(logn)的时间复杂度由来。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、最坏情况与平均情况"><span class="toc-number">1.4.</span> <span class="toc-text">四、最坏情况与平均情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、二分法查找的时间复杂度"><span class="toc-number">1.5.</span> <span class="toc-text">五、二分法查找的时间复杂度</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

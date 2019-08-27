@@ -160,6 +160,178 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vector容器浅析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/27/vector容器浅析/">vector容器浅析</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/27/vector容器浅析/" class="archive-article-date">
+  	<time datetime="2019-08-27T12:57:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="C-vector-容器浅析"><a href="#C-vector-容器浅析" class="headerlink" title="C++ vector 容器浅析"></a>C++ vector 容器浅析</h1><h2 id="一、什么是vector？"><a href="#一、什么是vector？" class="headerlink" title="一、什么是vector？"></a>一、什么是vector？</h2><p>向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，向量是一个能够存放任意类型的动态数组。</p>
+<hr>
+<h2 id="二、容器特性"><a href="#二、容器特性" class="headerlink" title="二、容器特性"></a>二、容器特性</h2><h3 id="1-顺序序列"><a href="#1-顺序序列" class="headerlink" title="1.顺序序列"></a>1.顺序序列</h3><p>顺序容器中的元素按照严格的线性顺序排序。可以通过元素在序列中的位置访问对应的元素。</p>
+<h3 id="2-动态数组"><a href="#2-动态数组" class="headerlink" title="2.动态数组"></a>2.动态数组</h3><p>支持对序列中的任意元素进行快速直接访问，甚至可以通过指针算述进行该操作。操供了在序列末尾相对快速地添加/删除元素的操作。</p>
+<h3 id="3-能够感知内存分配器的（Allocator-aware）"><a href="#3-能够感知内存分配器的（Allocator-aware）" class="headerlink" title="3.能够感知内存分配器的（Allocator-aware）"></a>3.能够感知内存分配器的（Allocator-aware）</h3><p>容器使用一个内存分配器对象来动态地处理它的存储需求。</p>
+<hr>
+<h2 id="三、基本函数实现"><a href="#三、基本函数实现" class="headerlink" title="三、基本函数实现"></a>三、基本函数实现</h2><p>1.构造函数</p>
+<ul>
+<li>vector():创建一个空vector</li>
+<li>vector(int nSize):创建一个vector,元素个数为nSize</li>
+<li>vector(int nSize,const t&amp; t):创建一个vector，元素个数为nSize,且值均为t</li>
+<li>vector(const vector&amp;):复制构造函数</li>
+<li>vector(begin,end):复制[begin,end)区间内另一个数组的元素到vector中</li>
+</ul>
+<h3 id="2-增加函数"><a href="#2-增加函数" class="headerlink" title="2.增加函数"></a>2.增加函数</h3><ul>
+<li>void push_back(const T&amp; x):向量尾部增加一个元素X</li>
+<li>iterator insert(iterator it,const T&amp; x):向量中迭代器指向元素前增加一个元素x</li>
+<li>iterator insert(iterator it,int n,const T&amp; x):向量中迭代器指向元素前增加n个相同的元素x</li>
+<li>iterator insert(iterator it,const_iterator first,const_iterator last):向量中迭代器指向元素前插入另一个相同类型向量的[first,last)间的数据</li>
+</ul>
+<h3 id="3-删除函数"><a href="#3-删除函数" class="headerlink" title="3.删除函数"></a>3.删除函数</h3><ul>
+<li>iterator erase(iterator it):删除向量中迭代器指向元素</li>
+<li>iterator erase(iterator first,iterator last):删除向量中[first,last)中元素</li>
+<li>void pop_back():删除向量中最后一个元素</li>
+<li>void clear():清空向量中所有元素</li>
+</ul>
+<h3 id="4-遍历函数"><a href="#4-遍历函数" class="headerlink" title="4.遍历函数"></a>4.遍历函数</h3><ul>
+<li>reference at(int pos):返回pos位置元素的引用</li>
+<li>reference front():返回首元素的引用</li>
+<li>reference back():返回尾元素的引用</li>
+<li>iterator begin():返回向量头指针，指向第一个元素</li>
+<li>iterator end():返回向量尾指针，指向向量最后一个元素的下一个位置</li>
+<li>reverse_iterator rbegin():反向迭代器，指向最后一个元素</li>
+<li>reverse_iterator rend():反向迭代器，指向第一个元素之前的位置</li>
+</ul>
+<h3 id="5-判断函数"><a href="#5-判断函数" class="headerlink" title="5.判断函数"></a>5.判断函数</h3><ul>
+<li>bool empty() const:判断向量是否为空，若为空，则向量中无元素</li>
+</ul>
+<h3 id="6-大小函数"><a href="#6-大小函数" class="headerlink" title="6.大小函数"></a>6.大小函数</h3><ul>
+<li>int size() const:返回向量中元素的个数</li>
+<li>int capacity() const:返回当前向量张红所能容纳的最大元素值</li>
+<li>int max_size() const:返回最大可允许的vector元素数量值</li>
+</ul>
+<h3 id="7-其他函数"><a href="#7-其他函数" class="headerlink" title="7.其他函数"></a>7.其他函数</h3><ul>
+<li>void swap(vector&amp;):交换两个同类型向量的数据</li>
+<li>void assign(int n,const T&amp; x):设置向量中第n个元素的值为x</li>
+<li>void assign(const_iterator first,const_iterator last):向量中[first,last)中元素设置成当前向量元素</li>
+</ul>
+<h3 id="8-看着清楚"><a href="#8-看着清楚" class="headerlink" title="8.看着清楚"></a>8.看着清楚</h3><blockquote>
+<p>1.push_back 在数组的最后添加一个数据</p>
+<p>2.pop_back 去掉数组的最后一个数据</p>
+<p>3.at 得到编号位置的数据</p>
+<p>4.begin 得到数组头的指针</p>
+<p>5.end 得到数组的最后一个单元+1的指针</p>
+<p>6．front 得到数组头的引用</p>
+<p>7.back 得到数组的最后一个单元的引用</p>
+<p>8.max_size 得到vector最大可以是多大</p>
+<p>9.capacity 当前vector分配的大小</p>
+<p>10.size 当前使用数据的大小</p>
+<p>11.resize 改变当前使用数据的大小，如果它比当前使用的大，者填充默认值</p>
+<p>12.reserve 改变当前vecotr所分配空间的大小</p>
+<p>13.erase 删除指针指向的数据项</p>
+<p>14.clear 清空当前的vector</p>
+<p>15.rbegin 将vector反转后的开始指针返回(其实就是原来的end-1)</p>
+<p>16.rend 将vector反转构的结束指针返回(其实就是原来的begin-1)</p>
+<p>17.empty 判断vector是否为空</p>
+<p>18.swap 与另一个vector交换数据</p>
+</blockquote>
+<hr>
+<h2 id="四、基本用法"><a href="#四、基本用法" class="headerlink" title="四、基本用法"></a>四、基本用法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt; vector&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、简单介绍"><a href="#五、简单介绍" class="headerlink" title="五、简单介绍"></a>五、简单介绍</h2><ol>
+<li>Vector&lt;类型&gt;标识符</li>
+<li>Vector&lt;类型&gt;标识符(最大容量)</li>
+<li>Vector&lt;类型&gt;标识符(最大容量,初始所有值)</li>
+<li>Int i[5]={1,2,3,4,5}<br>Vector&lt;类型&gt;vi(I,i+2);//得到i索引值为3以后的值</li>
+<li>Vector&lt; vector&lt; int&gt; &gt;v; 二维向量//这里最外的&lt;&gt;要有空格。否则在比较旧的编译器下无法通过</li>
+</ol>
+<hr>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="1-pop-back-amp-push-back-elem-实例在容器最后移除和插入数据"><a href="#1-pop-back-amp-push-back-elem-实例在容器最后移除和插入数据" class="headerlink" title="1.pop_back()&amp;push_back(elem)实例在容器最后移除和插入数据"></a>1.pop_back()&amp;push_back(elem)实例在容器最后移除和插入数据</h3><h2 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;   </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;     </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;obj;<span class="comment">//创建一个向量存储容器     </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++) <span class="comment">// push_back(elem)在数组最后添加数据     </span></span><br><span class="line">    &#123;         </span><br><span class="line">        obj.push_back(i);         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;obj[i]&lt;&lt;<span class="string">","</span>;         </span><br><span class="line">    &#125;       </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)<span class="comment">//去掉数组最后一个数据      </span></span><br><span class="line">    &#123;         </span><br><span class="line">        obj.pop_back();     </span><br><span class="line">    &#125;       </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>&lt;&lt;<span class="built_in">endl</span>;       </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;obj.size();i++)<span class="comment">//size()容器中实际数据个数      </span></span><br><span class="line">    &#123;         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;obj[i]&lt;&lt;<span class="string">","</span>;     </span><br><span class="line">    &#125;       </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-clear-清除容器中所有数据"><a href="#2-clear-清除容器中所有数据" class="headerlink" title="2.clear()清除容器中所有数据"></a>2.clear()清除容器中所有数据</h3><h2 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;   </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;     </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;obj;     </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)<span class="comment">//push_back(elem)在数组最后添加数据      </span></span><br><span class="line">    &#123;         </span><br><span class="line">        obj.push_back(i);         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;obj[i]&lt;&lt;<span class="string">","</span>;     </span><br><span class="line">    &#125;       </span><br><span class="line">    obj.clear();<span class="comment">//清除容器中所以数据     </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;obj.size();i++)     </span><br><span class="line">    &#123;         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;obj[i]&lt;&lt;<span class="built_in">endl</span>;     </span><br><span class="line">    &#125;       </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-排序"><a href="#3-排序" class="headerlink" title="3.排序"></a>3.排序</h3><h2 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;   </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;     </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;obj;       </span><br><span class="line">    obj.push_back(<span class="number">1</span>);    </span><br><span class="line">    obj.push_back(<span class="number">3</span>);     </span><br><span class="line">    obj.push_back(<span class="number">0</span>);       </span><br><span class="line">    sort(obj.begin(),obj.end());<span class="comment">//从小到大       </span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"从小到大:"</span>&lt;&lt;<span class="built_in">endl</span>;     </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;obj.size();i++)     </span><br><span class="line">    &#123;         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;obj[i]&lt;&lt;<span class="string">","</span>;       </span><br><span class="line">    &#125;        </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>&lt;&lt;<span class="built_in">endl</span>;       </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"从大到小:"</span>&lt;&lt;<span class="built_in">endl</span>;     </span><br><span class="line">    reverse(obj.begin(),obj.end());<span class="comment">//从大到小      </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;obj.size();i++)     </span><br><span class="line">    &#123;         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;obj[i]&lt;&lt;<span class="string">","</span>;     </span><br><span class="line">    &#125;     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">从小到大:</span><br><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,</span><br><span class="line"></span><br><span class="line">从大到小:</span><br><span class="line"><span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>,</span><br></pre></td></tr></table></figure>
+
+<p>1.注意 sort 需要头文件 <strong>#include <algorithm></algorithm></strong></p>
+<p>2.如果想 sort 来降序，可重写 sort</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">return</span> a&lt; b; <span class="comment">//升序排列，如果改为return a&gt;b，则为降序 </span></span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">int</span> a[<span class="number">20</span>]=&#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">23</span>,<span class="number">5</span>,<span class="number">76</span>,<span class="number">0</span>,<span class="number">43</span>,<span class="number">24</span>,<span class="number">65</span>&#125;,i; </span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++) </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; a[i]&lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">sort(a,a+<span class="number">20</span>,compare);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-访问（直接数组访问-amp-迭代器访问）"><a href="#4-访问（直接数组访问-amp-迭代器访问）" class="headerlink" title="4.访问（直接数组访问&amp;迭代器访问）"></a>4.访问（直接数组访问&amp;迭代器访问）</h3><h2 id="实例-4"><a href="#实例-4" class="headerlink" title="实例"></a>实例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;   </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;     <span class="comment">//顺序访问     </span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;obj;     </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)     </span><br><span class="line">    &#123;         </span><br><span class="line">        obj.push_back(i);        </span><br><span class="line">    &#125;        </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"直接利用数组："</span>;      </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)<span class="comment">//方法一      </span></span><br><span class="line">    &#123;         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;obj[i]&lt;&lt;<span class="string">" "</span>;     </span><br><span class="line">    &#125;       </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;      </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"利用迭代器："</span> ;     </span><br><span class="line">    <span class="comment">//方法二，使用迭代器将容器中数据输出      </span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">    <span class="comment">//声明一个迭代器，来访问vector容器，作用：遍历或者指向vector容器的元素      </span></span><br><span class="line">    <span class="keyword">for</span>(it=obj.begin();it!=obj.end();it++)     </span><br><span class="line">    &#123;         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">" "</span>;     </span><br><span class="line">    &#125;     <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">直接利用数组：<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> </span><br><span class="line">利用迭代器：<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-二维数组两种定义方法（结果一样）"><a href="#5-二维数组两种定义方法（结果一样）" class="headerlink" title="5.二维数组两种定义方法（结果一样）"></a>5.二维数组两种定义方法（结果一样）</h3><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>\</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;     </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;     </span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>, M=<span class="number">6</span>;      </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; obj(N); <span class="comment">//定义二维动态数组大小5行      </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i&lt; obj.size(); i++)<span class="comment">//动态二维数组为5行6列，值全为0     </span></span><br><span class="line">    &#123;          </span><br><span class="line">        obj[i].resize(M);      </span><br><span class="line">    &#125;        </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt; obj.size(); i++)<span class="comment">//输出二维动态数组      </span></span><br><span class="line">    &#123;         </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;obj[i].size();j++)         </span><br><span class="line">        &#123;             </span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;obj[i][j]&lt;&lt;<span class="string">" "</span>;         </span><br><span class="line">        &#125;        </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>;     </span><br><span class="line">    &#125;     </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;     </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;     </span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>, M=<span class="number">6</span>;      </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; obj(N, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(M)); <span class="comment">//定义二维动态数组5行6列        </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt; obj.size(); i++)<span class="comment">//输出二维动态数组      </span></span><br><span class="line">    &#123;         </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;obj[i].size();j++)        </span><br><span class="line">        &#123;             </span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;obj[i][j]&lt;&lt;<span class="string">" "</span>;         </span><br><span class="line">        &#125;         </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"\n"</span>;    </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/27/vector容器浅析/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-点是否在三角形内" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -488,69 +660,6 @@
 
 
   
-    <article id="post-面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/15/面试/">面试</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/15/面试/" class="archive-article-date">
-  	<time datetime="2019-08-15T07:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="面试中必要的数据结构及算法知识点"><a href="#面试中必要的数据结构及算法知识点" class="headerlink" title="面试中必要的数据结构及算法知识点"></a>面试中必要的数据结构及算法知识点</h1><h2 id="一、编程语言问题"><a href="#一、编程语言问题" class="headerlink" title="一、编程语言问题"></a>一、编程语言问题</h2><h4 id="1-指针前加const，const指针加在不同位置的区别？"><a href="#1-指针前加const，const指针加在不同位置的区别？" class="headerlink" title="1.指针前加const，const指针加在不同位置的区别？"></a>1.指针前加const，const指针加在不同位置的区别？</h4><h4 id="2-函数传入复杂类型实例，传入值还是传入引用参数？要不要在引用参数加const？"><a href="#2-函数传入复杂类型实例，传入值还是传入引用参数？要不要在引用参数加const？" class="headerlink" title="2.函数传入复杂类型实例，传入值还是传入引用参数？要不要在引用参数加const？"></a>2.函数传入复杂类型实例，传入值还是传入引用参数？要不要在引用参数加const？</h4>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/15/面试/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-时间复杂度O-logn-之来龙去脉" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -562,7 +671,7 @@
 <li><input disabled type="checkbox"> <strong>占用空间</strong></li>
 </ul>
 <blockquote>
-<p>而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用时间。</p>
+<p>而占用空间，由于摩尔定律计算机半导体芯片的处理能力和存储器容量每18个月翻一倍，在一般对容量没有特别要求的代码中（嵌入式编程可用空间较小），一般不怎么考虑占用空间。</p>
 </blockquote>
         
       
