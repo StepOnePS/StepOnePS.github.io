@@ -181,42 +181,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Qt信号与槽"><a href="#Qt信号与槽" class="headerlink" title="Qt信号与槽"></a>Qt信号与槽</h1><p>  信号与槽（Signal &amp; Slot）是 Qt 编程的基础，也是 Qt 的一大创新。因为有了信号与槽的编程机制，在 Qt 中处理界面各个组件的交互操作时变得更加直观和简单。</p>
-<p>信号（Signal）就是在特定情况下被发射的事件，例如PushButton 最常见的信号就是鼠标单击时发射的 clicked() 信号，一个 ComboBox 最常见的信号是选择的列表项变化时发射的 CurrentIndexChanged() 信号。</p>
-<p>GUI 程序设计的主要内容就是对界面上各组件的信号的响应，只需要知道什么情况下发射哪些信号，合理地去响应和处理这些信号就可以了。</p>
-<p>槽（Slot）就是对信号响应的函数。槽就是一个函数，与一般的C++函数是一样的，可以定义在类的任何部分（public、private 或 protected），可以具有任何参数，也可以被直接调用。槽函数与一般的函数不同的是：槽函数可以与一个信号关联，当信号被发射时，关联的槽函数被自动执行。</p>
-<p>信号与槽关联是用 QObject::connect() 函数实现的，其基本格式是：  </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QObject::connect(sender, SIGNAL(signal()), receiver, SLOT(slot()));</span><br></pre></td></tr></table></figure>
-
-<p>connect() 是 QObject 类的一个静态函数，而 QObject 是所有 Qt 类的基类，在实际调用时可以忽略前面的限定符，所以可以直接写为：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect(sender, SIGNAL(signal()), receiver, SLOT(slot()));</span><br></pre></td></tr></table></figure>
-
-<p>其中，sender 是发射信号的对象的名称，signal() 是信号名称。信号可以看做是特殊的函数，需要带括号，有参数时还需要指明参数。receiver 是接收信号的对象名称，slot() 是槽函数的名称，需要带括号，有参数时还需要指明参数。<br>SIGNAL 和 SLOT 是 Qt 的宏，用于指明信号和槽，并将它们的参数转换为相应的字符串。例如，在 samp2_1（前面章节中的项目）的 ui_widget.h 文件中，在 setupUi() 函数中有如下的语句：其作用就是将 btnClose 按钮的 clicked() 信号与窗体（Widget）的槽函数 close() 相关联，这样，当单击 btnClose 按钮（就是界面上的“Close”按钮）时，就会执行 Widget 的 close() 槽函数。</p>
-<ul>
-<li><p>一个信号可以连接多个槽，例如：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect(spinNum, SIGNAL(valueChanged(<span class="keyword">int</span>)), <span class="keyword">this</span>, SLOT(addFun(<span class="keyword">int</span>));</span><br><span class="line">connect(spinNum, SIGNAL(valueChanged(<span class="keyword">int</span>)), <span class="keyword">this</span>, SLOT(updateStatus(<span class="keyword">int</span>));</span><br></pre></td></tr></table></figure>
-
-<p>这是当一个对象 spinNum 的数值发生变化时，所在窗体有两个槽进行响应，一个 addFun()用于计算，一个 updateStatus() 用于更新状态。</p>
-<p>当一个信号与多个槽函数关联时，槽函数按照建立连接时的顺序依次执行。</p>
-<p>当信号和槽函数带有参数时，在 connect()函数里，要写明参数的类型，但可以不写参数名称。</p>
-</li>
-<li><p>多个信号可以连接同一个槽，例如在 samp2_2（前面章节中的项目）中，让三个选择颜色的 RadioButton的clicked() 信号关联到相同的一个自定义槽函数 setTextFontColor()。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">connect(ui-&gt;rBtnBlue,SIGNAL(clicked()),<span class="keyword">this</span>,SLOT(setTextFontColor()));</span><br><span class="line">connect(ui-&gt;rBtnRed,SIGNAL(clicked()),<span class="keyword">this</span>,SLOT(setTextFontColor()));</span><br><span class="line">connect(ui-&gt;rBtnBlack,SIGNAL(clicked()),<span class="keyword">this</span>,SLOT(setTextFontColor()));</span><br></pre></td></tr></table></figure>
-
-<p>这样，当任何一个 RadioButton 被单击时，都会执行 setTextFontColor() 函数。</p>
-</li>
-<li><p>一个信号可以连接另外一个信号，例如：</p>
-<p>connect(spinNum, SIGNAL(valueChanged(int)), this, SIGNAL (refreshInfo(int));</p>
-<p>这样，当一个信号发射时，也会发射另外一个信号，实现某些特殊的功能。</p>
-</li>
-<li><p>严格的情况下，信号与槽的参数个数和类型需要一致，至少信号的参数不能少于槽的参数。如果不匹配，会出现编译错误或运行错误。</p>
-</li>
-<li><p>在使用信号与槽的类中，必须在类的定义中加入宏 Q_OBJECT。</p>
-</li>
-<li><p>当一个信号被发射时，与其关联的槽函数通常被立即执行，就像正常调用一个函数一样。只有当信号关联的所有槽函数执行完毕后，才会执行发射信号处后面的代码。</p>
-</li>
-</ul>
-<p>信号与槽机制是 Qt GUI 编程的基础，使用信号与槽机制可以比较容易地将信号与响应代码关联起来。</p>
-
+        
       
 
       
@@ -280,100 +245,7 @@
       
         <h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p><strong>1.为什么需要红黑树？</strong></p>
 <p>对于二叉搜索树，如果插入的数据是随机的，那么它就是接近平衡的二叉树，平衡的二叉树，它的操作效率（查询，插入，删除）效率较高，时间复杂度是O（logN）。但是可能会出现一种极端的情况，那就是插入的数据是有序的（递增或者递减），那么所有的节点都会在根节点的右侧或左侧，此时，二叉搜索树就变为了一个链表，它的操作效率就降低了，时间复杂度为O(N)，所以可以认为二叉搜索树的时间复杂度介于O（logN）和O(N)之间，视情况而定。那么为了应对这种极端情况，红黑树就出现了，它是具备了某些特性的二叉搜索树，能解决非平衡树问题，红黑树是一种接近平衡的二叉树。</p>
-<p><strong>2.红黑树的特性有哪些？</strong></p>
-<p>首先，红黑树是一个二叉搜索树，它同时满足以下特性：</p>
-<p>(1) 每个节点要么是黑色，要么是红色</p>
-<p>(2) 根节点是黑色</p>
-<p>(3) 如果节点是红色的，那么它的子节点必须是黑色的（反之，不一定需要成立）</p>
-<p>(4) 从根节点到叶节点或空子节点的每条路径，都包含相同数目的黑色节</p>
-<p>通过看图来理解以上四个特性</p>
-<div align="center">
-    <img src="/2019/09/08/红黑树/1.png" align="center" style="zoom:50%" < div>
-
-<p><strong>3.红黑树的效率</strong></p>
-<p>红黑树的查找，插入和删除操作，时间复杂度都是O(logN)。查找操作时，它和普通的相对平衡的二叉搜索树的效率相同，都是通过相同的方式来查找的，没有用到红黑树特有的特性。但，如果插入的时候是有序数据，那么红黑树的查询效率就比二叉搜索树要高了，因为此时二叉搜索树不是平衡树，它的时间复杂度O(N)。插入和删除操作时，由于红黑树的每次操作平均要旋转一次和变换颜色，所以它比普通的二叉搜索树效率要低一点，不过时间复杂度仍然是O(logN)。总之，红黑树的优点就是对有序数据的查询操作不会慢到O(logN)的时间复杂度。</p>
-<p><strong>4.对旋转的理解</strong></p>
-<p>在红黑树中，插入或者删除数据时，为了保持红黑树的那五个特性，需要进行旋转和变换颜色的操作。旋转必须要一次性做两件事情：</p>
-<p>* 使一些节点上升，一些节点下降，帮助树平衡</p>
-<p>* 保证不破坏二叉搜索树的特征</p>
-<p>旋转分为左旋转和右旋转，那么我们就看下左旋转和右旋转是怎么回事。</p>
-<p><strong>4.1 左旋转</strong></p>
-<p>此处，以50为支点进行逆时针旋转，然后75成为了顶点，50成为了75的左子节点，65成为了50的右子节点，这个操作就是左旋转。</p>
-<div align="center">
-    <img src="/2019/09/08/红黑树/2.png" align="center" style="zoom:50%" < div>
-
-<p><strong>4.2 右旋转</strong></p>
-<p>此处，以75为支点顺时针旋转，然后50成为了顶点，75成为了50的右子节点，65成为了75的左子节点，这就是右旋转操作。</p>
-<div align="center">
-    <img src="/2019/09/08/红黑树/3.png" align="center" style="zoom:50%" < div>
-
-<p><strong>5.插入操作</strong></p>
-<p>在介绍插入操作前，先约定一下各个节点的名称。看图：</p>
-<div align="center">
-    <img src="/2019/09/08/红黑树/4.png" align="center" style="zoom:80%" < div>
-
-<p>在红黑树中，插入一个节点，都执行了哪些操作呢？</p>
-<p>首先，查找要插入节点的位置，然后给予颜色（红色或者黑色），但是为了保证红黑树的特性，需要进行旋转或者更改颜色，需要注意的是，在旋转前和旋转后，红黑树一直都是一个二叉搜索树，二叉搜索树的特征从未改变过。</p>
-<p>这里，对于新插入的节点，我们给予的颜色是红色，是因为为了和红黑树的第（4）条特性不冲突： 从根节点到叶节点或空子节点的每条路径，都包含相同数目的黑色节点。这样就少了很多操作。然后看其它几个特性</p>
-<p>* 对于(1)特性：每个节点要么是黑色，要么是红色，不冲突。</p>
-<p>* 对于(2)特性：根节点是黑色，如果插入的节点不是根节点，也不冲突。如果是根节点，那么直接给予颜色黑色</p>
-<p>那么，唯一需要满足的特性就是（3）：如果节点是红色的，那么它的子节点必须是黑色的。这里，当我们给予新插入的节点颜色是红色时，需要根据父节点的不同情况做不同的处理，以满足这个特性。有以下几种情况：</p>
-<p>根据代码来理解这几种情况：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 红黑树修正程序 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_repair_tree</span><span class="params">(struct node* n)</span> </span>&#123; <span class="comment">//情况一：节点N的父节点为null，说明该节点是根节点</span></span><br><span class="line"> <span class="keyword">if</span> (parent(n) == <span class="literal">NULL</span>) &#123;</span><br><span class="line">  insert_case1(n);</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (parent(n)-&gt;color == BLACK) &#123;  <span class="comment">//情况二：父节点是黑色</span></span><br><span class="line">  insert_case2(n);</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (uncle(n)-&gt;color == RED) &#123;  <span class="comment">//情况三： 父节点和叔叔节点都是红色</span></span><br><span class="line">  insert_case3(n);</span><br><span class="line"> &#125; <span class="keyword">else</span> &#123;  <span class="comment">//情况四:父节点是红色，叔叔节点是黑色</span></span><br><span class="line">  insert_case4(n);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>5.1：如果新插入节点是根节点，那么给予该节点颜色是黑色</strong></p>
-<p>看代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 情况一：插入的节点是根节点 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_case1</span><span class="params">(struct node* n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (parent(n) == <span class="literal">NULL</span>)</span><br><span class="line">  n-&gt;color = BLACK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>5.2：如果新插入节点的父节点是黑色，那么给予该节点是红色不会对该红黑树有任何影响，所以不做任何处理。</strong></p>
-<p>看代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 情况二：父节点是黑色 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_case2</span><span class="params">(struct node* n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span>; <span class="comment">/* Do nothing since tree is still valid */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>5.3：如果新插入节点的父节点是红色，同时叔叔节点也是红色</strong></p>
-<p>​       需要将父亲节点和叔叔节点重新绘制为黑色，祖父节点绘制为红色。但是，如果此处祖父节点为根节点，那么需要调用红黑树修正程序，将祖父节点绘制为黑色。</p>
-<p>看代码：发现看代码比看图要更容易理解，并且逻辑也更严谨，对于父亲节点和叔叔节点都是红色时，发现其他文章都没有考虑祖父节点为根节点的情况，这里图就省了。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 情况三：父节点和叔叔节点都是红色 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_case3</span><span class="params">(struct node* n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> parent(n)-&gt;color = BLACK;</span><br><span class="line"> uncle(n)-&gt;color = BLACK;</span><br><span class="line"> grandparent(n)-&gt;color = RED; <span class="comment">//调用红黑树修正程序</span></span><br><span class="line"> insert_repair_tree(grandparent(n));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>5.4：如果新插入节点的父节点是红色，同时叔叔节点是黑色</strong></p>
-<p>看代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 情况四:第二步 */</span><span class="comment">/* 在第二步时：当前节点n肯定处于 祖父节点左子节点的左侧，或者祖父节点右子节点的右侧 */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_case4step2</span><span class="params">(struct node* n)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="class"><span class="keyword">struct</span> <span class="title">node</span>* <span class="title">p</span> = <span class="title">parent</span>(<span class="title">n</span>);</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">node</span>* <span class="title">g</span> = <span class="title">grandparent</span>(<span class="title">n</span>);</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">if</span> (n == p-&gt;left)  <span class="comment">/* 以祖父节点为支点进行右旋 */</span></span><br><span class="line">  rotate_right(g);</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line">  rotate_left(g);</span><br><span class="line"> p-&gt;color = BLACK;</span><br><span class="line"> g-&gt;color = RED;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在满足父节点是红色，叔叔节点是黑色的条件下，我们可以分以下几种情况：</p>
-<p><strong>情况（a）：</strong>父节点p是祖父节点g的左子节点，新插入节点n是父节点p的右子节点</p>
-<p><strong>处理：</strong>以父节点为支点左旋，然后以祖父节点为支点进行右旋，最后给父节点（第一次旋转后的父节点）绘制为黑色，给祖父节（第一次旋转后的祖父节点）点绘制为红色</p>
-<p><strong>看图：</strong></p>
-<div align="center">
-    <img src="/2019/09/08/红黑树/5.png" align="center" style="zoom:100%" < div>
-
-<p><strong>情况（b）：</strong>父节点p是祖父节点g的右子节点，新插入节点n是父节点p的左子节点</p>
-<p><strong>处理：</strong>以父节点为支点进行右旋，然后以祖父为支点进行左旋，最后给父节点（第一次旋转后的父节点）绘制为黑色，给祖父节（第一次旋转后的祖父节点）点绘制为红色</p>
-<p><strong>看图：</strong></p>
-<div align="center">
-    <img src="/2019/09/08/红黑树/6.png" align="center" style="zoom:100%" < div>
-
-<p><strong>情况（c）：</strong>父节点p是祖父节点g的左子节点，新插入节点n是父节点p的左子节点</p>
-<p><strong>处理：</strong>以祖父节点为支点进行右旋，最后给父节点绘制为黑色，给祖父节点绘制为红色，也就是直接调用第二步的方法 insert_case4step2</p>
-<p><strong>情况（d）:</strong>父节点p是祖父节点g的右子节点，新插入节点n是父节点p的右子节点</p>
-<p><strong>处理：</strong>以祖父为支点进行左旋，最后给父节点绘制为黑色，给祖父节点绘制为红色，也就是直接调用第二步的方法 insert_case4step2</p>
-<p> <strong>6 删除操作</strong></p>
-<p>对于删除操作，处理的逻辑是：根据二叉搜索树的特点找到被删除的节点，将其删除掉，然后再通过改变颜色和旋转操作保持其红黑树的特性。此处我们统一规定被删除节点是D，真正被删除节点为RD，真正被删除节点的兄弟节点是B，真正被删除节点的父节点是P，B的两个子节点是BL和BR。删除操作有三种情况：</p>
-<p><strong>6.1</strong> 被删除节点为叶子节点，分为两种情况：</p>
-<p><strong>情况（a）：</strong>该叶子节点是红色</p>
-<p><strong>处理：</strong>直接删除</p>
-<p><strong>情况（b）：</strong>该叶子节点是黑色，</p>
-<p><strong>处理：</strong>删除节点，然后旋转和变换颜色。</p>
-<p><strong>6.2</strong> 被删除节点只有一个子节点，那么使被删除节点的父节点指向被删除节点的子节点，然后通过改变节点颜色和旋转来保持红黑树特性</p>
-<p><strong>6.3</strong> 被删除节点D有两个子节点，那么可以将被删除节点D的后继节点（D的右子树中的最小元素RD）的值赋值给被删除节点D，但是被删除节点D的颜色不做改变，此时删除操作就转化为了删除后继节点RD的情况了。那么删除RD的情况又分为五种：</p>
-<p><strong>情况（a）：</strong> RD节点是红色的</p>
-<p><strong>处理：</strong>如果RD节点是红色的，那么它的父节点和右子节点应该是黑色的，当删除RD节点时，直接把RD节点的父节点指向RD节点的右子节点即可。</p>
-<p><strong>下面四种情况RD节点都是黑色的</strong></p>
-<p><strong>情况（b）：</strong>RD的兄弟节点B为红色</p>
-<p><strong>处理：</strong>如果B节点为红色，那么P节点和B的两个子节点都是黑色。交换B节点和P节点的颜色，然后以P节点为支点进行左旋转。这样处理后，就将情况（b）转为（c），（d），（e）中的一种。</p>
-<p><strong>看图：</strong></p>
-<div align="center">
-    <img src="/2019/09/08/红黑树/7.png" align="center" style="zoom:80%" < div>
-
-</div></div></div></div></div></div></div>
+        
       
 
       
@@ -438,12 +310,7 @@
         <h1 id="排序-大话数据结构精简笔记"><a href="#排序-大话数据结构精简笔记" class="headerlink" title="排序-大话数据结构精简笔记"></a>排序-大话数据结构精简笔记</h1><h2 id="一、排序概念与分类"><a href="#一、排序概念与分类" class="headerlink" title="一、排序概念与分类"></a>一、排序概念与分类</h2><p>假设含有n个记录的序列为{r1,r2,……,rn}，其相应的关键字分别为{k1,k2,……,kn}，需确定1，2，……，n的一种排列p1,p2,……,pn，使其相应的关键字满足kp1≤kp2≤……≤kpn（非递减或非递增）关系，即使<strong>得序列成为一个按关键字有序的序列{rp1,rp2,……,rpn}，这样的操作就称为排序。</strong></p>
 <p>通常将数据元素称为记录，排序看成是线性表的一种操作。</p>
 <p>字符串首尾连接【组合排序】：多个关键字的排序最终都可以转化为单个关键字的排序</p>
-<h3 id="1-1稳定性"><a href="#1-1稳定性" class="headerlink" title="1.1稳定性"></a>1.1稳定性</h3><p> 假设ki=kj（1≤i≤n,1≤j≤n,i≠j），且在排序前的序列中ri领先于rj（即i&lt;j）。如果排序后ri仍领先于rj，则称所用的排序方法是稳定的；反之，若可能使得排序后的序列中rj领先ri，则称所用的排序方法是不稳定的。</p>
-<div align="center">
-    <img src="/2019/08/29/排序-大话数据结构精简笔记/stablesort.jpg" align="center" style="zoom:100%">
-</div>
-
-
+        
       
 
       
@@ -507,7 +374,6 @@
       
         <h1 id="查找—大话数据结构精简笔记"><a href="#查找—大话数据结构精简笔记" class="headerlink" title="查找—大话数据结构精简笔记"></a>查找—大话数据结构精简笔记</h1><h4 id="1-查找"><a href="#1-查找" class="headerlink" title="1.查找"></a>1.查找</h4><h5 id="1-1顺序查找表优化"><a href="#1-1顺序查找表优化" class="headerlink" title="1.1顺序查找表优化"></a>1.1顺序查找表优化</h5><p>循环时需要检查是否对len越界，需要判断。</p>
 <p>尾部开始，头部哨兵。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sequentialFind</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> len, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    a[<span class="number">0</span>] = key;</span><br><span class="line">    i = len;</span><br><span class="line">    <span class="keyword">while</span>(a[i] != key)</span><br><span class="line">    &#123;</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
       
 
@@ -688,8 +554,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: 点是否在三角形内<br>date: 2019-08-19 22:01:45<br>tags:</p>
-<h1 id="给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内"><a href="#给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内" class="headerlink" title="给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内"></a>给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内</h1><blockquote>
+        <h1 id="给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内"><a href="#给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内" class="headerlink" title="给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内"></a>给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内</h1><blockquote>
 <p>给定三角形ABC和一点P(x, y, z)，判断点P是是否在ABC内，给出思路并手写代码</p>
 </blockquote>
 <p>根据面积法，如果P在三角形ABC内，那么三角形ABP的面积+三角形BCP的面积+三角形ACP的面积应该等于三角形ABC的面积。算法如下：</p>

@@ -16,7 +16,7 @@
 <meta property="og:description" content="排序-大话数据结构精简笔记一、排序概念与分类假设含有n个记录的序列为{r1,r2,……,rn}，其相应的关键字分别为{k1,k2,……,kn}，需确定1，2，……，n的一种排列p1,p2,……,pn，使其相应的关键字满足kp1≤kp2≤……≤kpn（非递减或非递增）关系，即使得序列成为一个按关键字有序的序列{rp1,rp2,……,rpn}，这样的操作就称为排序。 通常将数据元素称为记录，排序看成是">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/08/29/排序-大话数据结构精简笔记/stablesort.jpg">
-<meta property="og:updated_time" content="2019-08-29T14:26:02.251Z">
+<meta property="og:updated_time" content="2019-09-09T08:22:12.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序-大话数据结构精简笔记">
 <meta name="twitter:description" content="排序-大话数据结构精简笔记一、排序概念与分类假设含有n个记录的序列为{r1,r2,……,rn}，其相应的关键字分别为{k1,k2,……,kn}，需确定1，2，……，n的一种排列p1,p2,……,pn，使其相应的关键字满足kp1≤kp2≤……≤kpn（非递减或非递增）关系，即使得序列成为一个按关键字有序的序列{rp1,rp2,……,rpn}，这样的操作就称为排序。 通常将数据元素称为记录，排序看成是">
@@ -187,6 +187,8 @@
         <h1 id="排序-大话数据结构精简笔记"><a href="#排序-大话数据结构精简笔记" class="headerlink" title="排序-大话数据结构精简笔记"></a>排序-大话数据结构精简笔记</h1><h2 id="一、排序概念与分类"><a href="#一、排序概念与分类" class="headerlink" title="一、排序概念与分类"></a>一、排序概念与分类</h2><p>假设含有n个记录的序列为{r1,r2,……,rn}，其相应的关键字分别为{k1,k2,……,kn}，需确定1，2，……，n的一种排列p1,p2,……,pn，使其相应的关键字满足kp1≤kp2≤……≤kpn（非递减或非递增）关系，即使<strong>得序列成为一个按关键字有序的序列{rp1,rp2,……,rpn}，这样的操作就称为排序。</strong></p>
 <p>通常将数据元素称为记录，排序看成是线性表的一种操作。</p>
 <p>字符串首尾连接【组合排序】：多个关键字的排序最终都可以转化为单个关键字的排序</p>
+<a id="more"></a>
+
 <h3 id="1-1稳定性"><a href="#1-1稳定性" class="headerlink" title="1.1稳定性"></a>1.1稳定性</h3><p> 假设ki=kj（1≤i≤n,1≤j≤n,i≠j），且在排序前的序列中ri领先于rj（即i&lt;j）。如果排序后ri仍领先于rj，则称所用的排序方法是稳定的；反之，若可能使得排序后的序列中rj领先ri，则称所用的排序方法是不稳定的。</p>
 <div align="center">
     <img src="/2019/08/29/排序-大话数据结构精简笔记/stablesort.jpg" align="center" style="zoom:100%">

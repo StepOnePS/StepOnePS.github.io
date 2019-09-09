@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/08/红黑树/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/08/红黑树/6.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/08/红黑树/7.png">
-<meta property="og:updated_time" content="2019-09-08T05:02:59.971Z">
+<meta property="og:updated_time" content="2019-09-09T08:21:03.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红黑树">
 <meta name="twitter:description" content="红黑树1.为什么需要红黑树？ 对于二叉搜索树，如果插入的数据是随机的，那么它就是接近平衡的二叉树，平衡的二叉树，它的操作效率（查询，插入，删除）效率较高，时间复杂度是O（logN）。但是可能会出现一种极端的情况，那就是插入的数据是有序的（递增或者递减），那么所有的节点都会在根节点的右侧或左侧，此时，二叉搜索树就变为了一个链表，它的操作效率就降低了，时间复杂度为O(N)，所以可以认为二叉搜索树的时间">
@@ -192,6 +192,8 @@
       
         <h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p><strong>1.为什么需要红黑树？</strong></p>
 <p>对于二叉搜索树，如果插入的数据是随机的，那么它就是接近平衡的二叉树，平衡的二叉树，它的操作效率（查询，插入，删除）效率较高，时间复杂度是O（logN）。但是可能会出现一种极端的情况，那就是插入的数据是有序的（递增或者递减），那么所有的节点都会在根节点的右侧或左侧，此时，二叉搜索树就变为了一个链表，它的操作效率就降低了，时间复杂度为O(N)，所以可以认为二叉搜索树的时间复杂度介于O（logN）和O(N)之间，视情况而定。那么为了应对这种极端情况，红黑树就出现了，它是具备了某些特性的二叉搜索树，能解决非平衡树问题，红黑树是一种接近平衡的二叉树。</p>
+<a id="more"></a>
+
 <p><strong>2.红黑树的特性有哪些？</strong></p>
 <p>首先，红黑树是一个二叉搜索树，它同时满足以下特性：</p>
 <p>(1) 每个节点要么是黑色，要么是红色</p>

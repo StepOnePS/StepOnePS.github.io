@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>查找-大话数据结构笔记 | PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="查找—大话数据结构精简笔记1.查找1.1顺序查找表优化循环时需要检查是否对len越界，需要判断。 尾部开始，头部哨兵。 1234567891011int sequentialFind(int* a, int len, int key)&amp;#123;    int i;    a[0] = key;    i = len;    while(a[i] != key)    &amp;#123;">
+  <meta name="description" content="查找—大话数据结构精简笔记1.查找1.1顺序查找表优化循环时需要检查是否对len越界，需要判断。 尾部开始，头部哨兵。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="查找-大话数据结构笔记">
 <meta property="og:url" content="http://yoursite.com/2019/08/29/查找-大话数据结构笔记/index.html">
 <meta property="og:site_name" content="PzSgar">
-<meta property="og:description" content="查找—大话数据结构精简笔记1.查找1.1顺序查找表优化循环时需要检查是否对len越界，需要判断。 尾部开始，头部哨兵。 1234567891011int sequentialFind(int* a, int len, int key)&amp;#123;    int i;    a[0] = key;    i = len;    while(a[i] != key)    &amp;#123;">
+<meta property="og:description" content="查找—大话数据结构精简笔记1.查找1.1顺序查找表优化循环时需要检查是否对len越界，需要判断。 尾部开始，头部哨兵。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/08/29/查找-大话数据结构笔记/insertfind.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/29/查找-大话数据结构笔记/fibonacci.png">
@@ -43,10 +43,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/29/查找-大话数据结构笔记/travel.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/29/查找-大话数据结构笔记/btree1.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/29/查找-大话数据结构笔记/linkadress.png">
-<meta property="og:updated_time" content="2019-09-08T04:58:02.920Z">
+<meta property="og:updated_time" content="2019-09-09T08:20:26.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查找-大话数据结构笔记">
-<meta name="twitter:description" content="查找—大话数据结构精简笔记1.查找1.1顺序查找表优化循环时需要检查是否对len越界，需要判断。 尾部开始，头部哨兵。 1234567891011int sequentialFind(int* a, int len, int key)&amp;#123;    int i;    a[0] = key;    i = len;    while(a[i] != key)    &amp;#123;">
+<meta name="twitter:description" content="查找—大话数据结构精简笔记1.查找1.1顺序查找表优化循环时需要检查是否对len越界，需要判断。 尾部开始，头部哨兵。">
 <meta name="twitter:image" content="http://yoursite.com/2019/08/29/查找-大话数据结构笔记/insertfind.png">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
@@ -213,9 +213,9 @@
       
         <h1 id="查找—大话数据结构精简笔记"><a href="#查找—大话数据结构精简笔记" class="headerlink" title="查找—大话数据结构精简笔记"></a>查找—大话数据结构精简笔记</h1><h4 id="1-查找"><a href="#1-查找" class="headerlink" title="1.查找"></a>1.查找</h4><h5 id="1-1顺序查找表优化"><a href="#1-1顺序查找表优化" class="headerlink" title="1.1顺序查找表优化"></a>1.1顺序查找表优化</h5><p>循环时需要检查是否对len越界，需要判断。</p>
 <p>尾部开始，头部哨兵。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sequentialFind</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> len, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    a[<span class="number">0</span>] = key;</span><br><span class="line">    i = len;</span><br><span class="line">    <span class="keyword">while</span>(a[i] != key)</span><br><span class="line">    &#123;</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <a id="more"></a>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sequentialFind</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> len, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    a[<span class="number">0</span>] = key;</span><br><span class="line">    i = len;</span><br><span class="line">    <span class="keyword">while</span>(a[i] != key)</span><br><span class="line">    &#123;</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h5 id="1-2二分法查找"><a href="#1-2二分法查找" class="headerlink" title="1.2二分法查找"></a>1.2二分法查找</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> len, <span class="keyword">int</span> key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> low, high;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = len - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low &lt;= high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (low + high)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid] == key)</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(key &lt; a[mid])</span><br><span class="line">            high = mid - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            low = mid +<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
