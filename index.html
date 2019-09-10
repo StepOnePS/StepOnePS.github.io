@@ -160,6 +160,173 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-最低公共祖先" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/10/最低公共祖先/">最低公共祖先</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/10/最低公共祖先/" class="archive-article-date">
+  	<time datetime="2019-09-10T15:37:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="树中两个节点的最低公共祖先"><a href="#树中两个节点的最低公共祖先" class="headerlink" title="树中两个节点的最低公共祖先"></a>树中两个节点的最低公共祖先</h1><h4 id="一-树中两个节点的最低公共祖先"><a href="#一-树中两个节点的最低公共祖先" class="headerlink" title="一.树中两个节点的最低公共祖先"></a>一.树中两个节点的最低公共祖先</h4><p><strong>题目一：</strong> 输入两个二叉搜索树的结点，求两个结点的最低公共祖先，所谓的最低公共祖先是指距离两个节点最近的共同祖先。</p>
+<p>解题思路：</p>
+<p>1.二叉搜索树具有一个很好的特点。以当前结点为根节点的左边结点的值都是小于根节点的值，右边结点的值都大于根节点的值。<br>2.根据这个特点，如果给的两个节点的值都小于根节点，那么它们的最低公共祖先就一定在它左子树。<br>3.如果给的两个节点的值都大于根节点，那么它们的最低公共祖先就一定在它右子树。<br>4.如果一个结点的值大于根节点的值，一个结点的值小于根节点的值，那么这个根节点就是它的最低公共祖先。<br><strong>代码实现：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求两个节点的最低公共祖先(递归解法)</span></span><br><span class="line"><span class="function">BSTreeNode* <span class="title">GetCommenParent_R</span><span class="params">(BSTreeNode* root, BSTreeNode* bstn1, BSTreeNode* bstn2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="literal">NULL</span> || bstn1 == <span class="literal">NULL</span> || bstn2 == <span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> ((bstn1-&gt;_data &lt; root-&gt;_data) &amp;&amp; (bstn2-&gt;_data&lt; root-&gt;_data))</span><br><span class="line">	&#123;</span><br><span class="line">		GetCommenParent_R(root-&gt;_left, bstn1, bstn2);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> ((bstn1-&gt;_data&gt;root-&gt;_data) &amp;&amp; (bstn2-&gt;_data&gt;root-&gt;_data))</span><br><span class="line">	&#123;</span><br><span class="line">		GetCommenParent_R(root-&gt;_right, bstn1, bstn2);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**</p>
+<p>题目二：** 假设在修改一下上述题目的条件，所给的树不是一棵二叉搜索树，甚至不是一棵二叉树，只是一棵简单的树，但是树中的结点存在着指向父节点的指针，那么要怎么求出两个结点的最低公共祖先呢？</p>
+<p>解决思路：转换题目。</p>
+<p>1.假设在上边的树中，题目给出3和78两个结点<br>2.我们可以发现从树的叶节点到根节点有唯一的一条路径，也就是一条链表<br>3.3-&gt;12-&gt;32，78-&gt;45-&gt;32<br>4.要求它们的最低公共祖先，就是转换成求上述两条链表的第一个公共结点</p>
+<p><strong>题目：</strong>输入两条单链表，求它们的第一个公共结点。结点的定义如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    DataType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;Node,*pLinkList;</span><br></pre></td></tr></table></figure>
+
+<p>解题思路：</p>
+<p>方法一：暴力法。拿出一条链表中的一个结点，然后在另一条链表中从前向后扫描，如果存在相同的结点，则此节点为第一个公共结点，否则，继续向后遍历。假设两条链表的长度，一条为m，一条为n。这种方法的时间复杂度为O(m*n)。</p>
+<p>方法二：借助栈的后进先出特点。两条单链表相交会有什么特点？它们相交后最后一个结点一定是同一个结点，可能是Y或者&gt;，但是绝对不可能是X。既然是这样，我们能不能考虑从链表的最后，向前开始遍历呢？如果最后两条链表的最后一个结点相同，则继续向前找有没有相同的结点，如果没有，则这个结点就是第一个公共结点，如果有，则继续向前找。对于单链表，我们是没有办法从前向后遍历的，所以只能借助于栈，遍历两条链表，将他们分别压入一个栈，我们只要从栈顶开始比较即可。假设两条链表的长度，一条为m，一条为n。这种方法的时间复杂度为O(m+n),空间复杂度也是O(m+n)，所以这是一种用空间换取时间的方法。</p>
+<p>方法三：快慢指针的思想。我们可以先求出两个链表的长度差，然后让长的那条链表先走长度差步，然后两条链表一起走，他们一定会在第一个公共结点处相遇。这种方法的时间复杂度为O(n+m)，但是空间复杂度却为O(1)。</p>
+<p>由于前两种办法的时间复杂度或空间复杂度较高，面试官一般不会喜欢，所以这里只实现第三种方法：快慢指针的思想</p>
+<p>代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求两条链表的第一个公共结点</span></span><br><span class="line"><span class="function">Node* <span class="title">GetMeetNode</span><span class="params">(pLinkList plist1, pLinkList plist2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> gap = <span class="number">0</span>;</span><br><span class="line">    Node* cur1 = plist1;</span><br><span class="line">    Node* cur2 = plist2;</span><br><span class="line">    <span class="comment">//求链表1长度</span></span><br><span class="line">    <span class="keyword">while</span> (cur1)</span><br><span class="line">    &#123;</span><br><span class="line">        len1++;</span><br><span class="line">        cur1 = cur1-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//求链表2长度</span></span><br><span class="line">    <span class="keyword">while</span> (cur2)</span><br><span class="line">    &#123;</span><br><span class="line">        len2++;</span><br><span class="line">        cur2 = cur2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//求差值</span></span><br><span class="line">    gap = <span class="built_in">abs</span>(len1 - len2);</span><br><span class="line"></span><br><span class="line">    cur1 = plist1;<span class="comment">//长</span></span><br><span class="line">    cur2 = plist2;<span class="comment">//短</span></span><br><span class="line">    <span class="keyword">if</span> (len1 &lt; len2)</span><br><span class="line">    &#123;</span><br><span class="line">        cur1 = plist2;</span><br><span class="line">        cur2 = plist1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//较长链表先走gap步</span></span><br><span class="line">    <span class="keyword">while</span> (gap--)</span><br><span class="line">    &#123;</span><br><span class="line">        cur1 = cur1-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//两个指针一起走一起走</span></span><br><span class="line">    <span class="keyword">while</span> (cur1!=cur2)</span><br><span class="line">    &#123;</span><br><span class="line">        cur1 = cur1-&gt;next;</span><br><span class="line">        cur2 = cur2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cur1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>题目三：假设在次修改题目二的条件，这只是一棵普通的二叉树，并没有指向父亲的指针，我们该怎样做呢？</p>
+<p>解题思路一：</p>
+<p>如果一个结点为根，另一个结点无论在什么地方它们的最低公共祖先一定为根结点。</p>
+<p>如果一个结点在左树，另一个结点在右树，那么它的最低公共祖先一定是根节点。</p>
+<p>如果两个结点都在左树，以子问题在左树查找。</p>
+<p>如果两个结点都在右树，以子问题在右树查找。</p>
+<p>代码实现：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找一个结点</span></span><br><span class="line"><span class="function">struct TreeNode* <span class="title">GetNode</span><span class="params">(struct TreeNode* root, struct TreeNode* cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(root-&gt;val==cur-&gt;val)&#123;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>* <span class="title">ret</span>=<span class="title">GetNode</span>(<span class="title">root</span>-&gt;<span class="title">left</span>,<span class="title">cur</span>);</span></span><br><span class="line">    <span class="keyword">if</span>(ret)&#123;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> GetNode(root-&gt;right,cur);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">struct TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(struct TreeNode* root, struct TreeNode* p, struct TreeNode* q)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root-&gt;val==p-&gt;val||root-&gt;val==q-&gt;val)&#123;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">bool</span> pleft,pright,qleft,qright;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(GetNode(root-&gt;left,p))&#123;</span><br><span class="line">        pleft=<span class="literal">true</span>;</span><br><span class="line">        pright=<span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        pleft=<span class="literal">false</span>;</span><br><span class="line">        pright=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(GetNode(root-&gt;left,q))&#123;</span><br><span class="line">        qleft=<span class="literal">true</span>;</span><br><span class="line">        qright=<span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        qleft=<span class="literal">false</span>;</span><br><span class="line">        qright=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//一个在左，一个在右，返回根</span></span><br><span class="line">    <span class="keyword">if</span>((pleft&amp;&amp;qright)||(pright&amp;&amp;qleft))&#123;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//两个都在左</span></span><br><span class="line">    <span class="keyword">if</span>(pleft&amp;&amp;qleft)&#123;</span><br><span class="line">        <span class="keyword">return</span> lowestCommonAncestor(root-&gt;left,p,q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//两个都在右</span></span><br><span class="line">    <span class="keyword">if</span>(pright&amp;&amp;qright)&#123;</span><br><span class="line">        <span class="keyword">return</span> lowestCommonAncestor(root-&gt;right,p,q);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决思路二：</strong> 用辅助栈解决。</p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将结点的路劲放到辅助栈中</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">GetNodePath</span><span class="params">(struct TreeNode* root, struct TreeNode* cur,Stack* s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    StackPush(s,root);</span><br><span class="line">    <span class="keyword">if</span>(root-&gt;val==cur-&gt;val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(GetNodePath(root-&gt;left,cur,s)==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(GetNodePath(root-&gt;right,cur,s)==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//走到这说明左右都没有，回溯</span></span><br><span class="line">    StackPop(s);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">struct TreeNode* <span class="title">lowestCommonAncestor</span><span class="params">(struct TreeNode* root, struct TreeNode* p, struct TreeNode* q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root-&gt;val==p-&gt;val||root-&gt;val==q-&gt;val)&#123;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    Stack pPath;</span><br><span class="line">    Stack qPath;</span><br><span class="line">    StackInit(&amp;pPath);</span><br><span class="line">    StackInit(&amp;qPath);</span><br><span class="line">    GetNodePath(root,p,&amp;pPath);</span><br><span class="line">    GetNodePath(root,q,&amp;qPath);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(StackSize(&amp;pPath)!=StackSize(&amp;qPath))&#123;</span><br><span class="line">    	<span class="comment">//大的先出栈</span></span><br><span class="line">        <span class="keyword">if</span>(StackSize(&amp;pPath)&gt;StackSize(&amp;qPath))&#123;</span><br><span class="line">            StackPop(&amp;pPath);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            StackPop(&amp;qPath);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(StackTop(&amp;pPath)!=StackTop(&amp;qPath))&#123;</span><br><span class="line">        StackPop(&amp;pPath);</span><br><span class="line">        StackPop(&amp;qPath);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(StackSize(&amp;pPath)&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> StackTop(&amp;pPath);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/10/最低公共祖先/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-买苹果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/10/买苹果/">买苹果</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/10/买苹果/" class="archive-article-date">
+  	<time datetime="2019-09-10T15:31:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="买苹果问题"><a href="#买苹果问题" class="headerlink" title="买苹果问题"></a>买苹果问题</h1><p>小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。</p>
+<p><strong>输入描述:</strong></p>
+<p>输入一个整数n，表示小易想购买n(1 ≤ n ≤ 100)个苹果</p>
+<p><strong>输出描述:</strong></p>
+<p>输出一个整数表示最少需要购买的袋数，如果不能买恰好n个苹果则输出-1</p>
+<p><strong>输入例子:</strong><br>20<br><strong>输出例子:</strong><br>3</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a = n / <span class="number">6</span>;</span><br><span class="line">        <span class="keyword">int</span> b = n / <span class="number">8</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = b;i &gt;= <span class="number">0</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt;= a;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="number">6</span> * j + <span class="number">8</span> * i == n)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; j + i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="keyword">int</span> N)</span> <span class="comment">// 总共的苹果数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=N/<span class="number">6</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((N-i*<span class="number">6</span>)%<span class="number">8</span>==<span class="number">0</span>) <span class="comment">//优先减去较小数的倍数</span></span><br><span class="line">            <span class="keyword">return</span> (i+(N<span class="number">-6</span>*i)/<span class="number">8</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/10/买苹果/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Git与分布式架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -634,140 +801,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/08/19/点是否在三角形内/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数组中重复的数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/19/数组中重复的数字/">数组中重复的数字</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/19/数组中重复的数字/" class="archive-article-date">
-  	<time datetime="2019-08-19T07:40:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数组中重复的数字"><a href="#数组中重复的数字" class="headerlink" title="数组中重复的数字"></a>数组中重复的数字</h1><blockquote>
-<p>题目一：找出数组中重复的数字</p>
-<p>在一个长度为n的数组里的所有数字都在0~~n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请超出数组中<strong>任意一个</strong>重复的数字。例如，如果输入长为为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
-<p>ps：读题很关键。</p>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/19/数组中重复的数字/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-赋值运算符函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/15/赋值运算符函数/">赋值运算符函数</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/15/赋值运算符函数/" class="archive-article-date">
-  	<time datetime="2019-08-15T07:58:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="赋值运算符函数"><a href="#赋值运算符函数" class="headerlink" title="赋值运算符函数"></a>赋值运算符函数</h1><blockquote>
-<p><strong>题目：</strong></p>
-<p>如下为类型CMyString的声明，请为该类型添加赋值运算符函数。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">class</span></span></span><br><span class="line"><span class="class">&gt; &#123;</span></span><br><span class="line">&gt; <span class="keyword">public</span>:</span><br><span class="line">&gt;     CMyString(<span class="keyword">char</span>* pData = <span class="literal">nullptr</span>);</span><br><span class="line">&gt;     CMyString(<span class="keyword">const</span> CMyString&amp; str);</span><br><span class="line">&gt;     ~CMyString(<span class="keyword">void</span>);</span><br><span class="line">&gt;         </span><br><span class="line">&gt; <span class="keyword">private</span>:</span><br><span class="line">&gt;     <span class="keyword">char</span>* m_pDatya;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/15/赋值运算符函数/">展开全文 >></a>
         </p>
       
 
