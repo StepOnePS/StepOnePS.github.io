@@ -8,14 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>10.14整理 | PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="位运算 下面的C语言语句，哪一个可以把一个32位变量的最高位置为1且保持其它位不变？    reg32|=1&amp;lt;&amp;lt;31; reg32&amp;amp;=1&amp;lt;&amp;lt;31; reg32&amp;amp;=~(1&amp;lt;&amp;lt;31); reg32^=1&amp;lt;&amp;lt;31;  正确答案：A    1&amp;lt;&amp;lt;31的意思是将1的二进制左移31位，即将0000 0000 0000 0000 000">
+<meta property="og:type" content="article">
 <meta property="og:title" content="10.14整理">
 <meta property="og:url" content="http://yoursite.com/2019/10/14/10-14整理/index.html">
 <meta property="og:site_name" content="PzSgar">
+<meta property="og:description" content="位运算 下面的C语言语句，哪一个可以把一个32位变量的最高位置为1且保持其它位不变？    reg32|=1&amp;lt;&amp;lt;31; reg32&amp;amp;=1&amp;lt;&amp;lt;31; reg32&amp;amp;=~(1&amp;lt;&amp;lt;31); reg32^=1&amp;lt;&amp;lt;31;  正确答案：A    1&amp;lt;&amp;lt;31的意思是将1的二进制左移31位，即将0000 0000 0000 0000 000">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-14T02:26:17.923Z">
+<meta property="og:updated_time" content="2019-10-14T04:01:11.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10.14整理">
+<meta name="twitter:description" content="位运算 下面的C语言语句，哪一个可以把一个32位变量的最高位置为1且保持其它位不变？    reg32|=1&amp;lt;&amp;lt;31; reg32&amp;amp;=1&amp;lt;&amp;lt;31; reg32&amp;amp;=~(1&amp;lt;&amp;lt;31); reg32^=1&amp;lt;&amp;lt;31;  正确答案：A    1&amp;lt;&amp;lt;31的意思是将1的二进制左移31位，即将0000 0000 0000 0000 000">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
   
@@ -179,7 +182,66 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h3><ol>
+<li>下面的C语言语句，哪一个可以把一个<strong>32位变量</strong>的最高位置为1且保持其它位不变？ </li>
+</ol>
+<ul>
+<li>reg32|=1&lt;&lt;31;</li>
+<li>reg32&amp;=1&lt;&lt;31;</li>
+<li>reg32&amp;=~(1&lt;&lt;31);</li>
+<li>reg32^=1&lt;&lt;31;</li>
+</ul>
+<p>正确答案：A</p>
+<blockquote>
+<p>  1&lt;&lt;31的意思是将1的二进制左移31位，即将0000 0000 0000 0000 0000     0000 0000 0001 整体左移31位，右边的补零。  </p>
+<p>  结果为1 000 0000 0000 0000 0000 0000 0000 0000。  </p>
+<p>   reg32|=1&lt;&lt;31;的意思是reg32和 1 000 0000 0000 0000 0000 0000 0000 0000按位或（不管32位变量reg32是什么，都可以保证reg32最高位为1，其它位保持不变），并将结果赋给reg32。相当于reg32=reg32|（1&lt;&lt;31）。</p>
+</blockquote>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>2.<strong>链接</strong>是将各个编译单元中的<strong>变量和函数引用与定义进行绑定</strong>，保证程序中的变量和函数都有对应的尸体，若被调用函数未定义，就在此过程中会发现。</p>
+<p>另外请记住：编辑阶段创建和修改源程序；预处理阶段分析<strong>宏定义以及替换宏引用</strong>；编译过程是把源程序翻译为与之等价的<strong>目标程序</strong>。</p>
+<h3 id="struct和class的区别"><a href="#struct和class的区别" class="headerlink" title="struct和class的区别"></a><strong>struct和class的区别</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">	<span class="comment">//成员列表</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>面向过程的编程认为，数据和数据操作是分开的。然而当struct进入面向对象的c++时，在c++中认为数据和数据对象是一个整体，不应该分开，这就是struct在c和c++两个时代的差别。</p>
+<p>在C++中struct得到了很大的扩充：</p>
+<p><strong>1.struct可以包括成员函数</strong></p>
+<p><strong>2.struct可以实现继承</strong></p>
+<p><strong>3.struct可以实现多态</strong></p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p> <strong>1.默认的继承访问权。class默认的是private,strcut默认的是public。</strong> </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">B</span>:</span> A</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p> strcut B就是公有继承（public）的struct A。如果将strcut变为 class 那么将会是私有继承(private)。写类的时候都会显示的写出是公有继承还是私有继承</p>
+<p> 到底默认是public继承还是private继承，<strong>取决于子类而不是基类</strong>。struct可以继承class，同样class也可以继承struct，那么默认的继承访问权限是看子类到底是用的struct还是class。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">B</span>:</span> A   <span class="comment">//共有继承</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span> A    <span class="comment">//私有继承</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> c</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>2.默认访问权限：struct作为数据结构的实现体，它默认的数据访问控制是public的，而class作为对象的实现体，它默认的成员变量访问控制是private的。</strong> </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	A n;</span><br><span class="line">	n.a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//可以在类外访问成员变量，所以struct默认是共有的</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> </span><br><span class="line">	B n1;</span><br><span class="line">	n1.b = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">//在内外无法访问私有变量</span></span><br></pre></td></tr></table></figure>
+
+<p>  <strong>3.“class”这个关键字还用于定义模板参数，就像“typename”。但关键字“struct”不用于定义模板参数</strong> </p>
+<p>struct更适合看成是一个数据结构的实现体，class更适合看成是一个对象的实现体。</p>
+<p> <strong>4.class和struct在使用大括号{ }上的区别</strong></p>
+<p>关于使用大括号初始化<br>       1.）class和struct如果定义了构造函数的话，都不能用大括号进行初始化<br>　　2.）如果没有定义构造函数，struct可以用大括号初始化。<br>　　3.）如果没有定义构造函数，且所有成员变量全是public的话，class可以用大括号初始化。</p>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p><strong>产生死锁的四个必要条件：</strong></p>
+<p><strong>●</strong> <strong>互斥条件</strong>：指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其它进程请求资源，则请求者只能等待，直至占有资源的进程用毕释放。</p>
+<p><strong>●</strong> <strong>请求与保持条件</strong>：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</p>
+<p><strong>●</strong> <strong>不可剥夺条件</strong>：进程所获得的资源在未使用完毕之前，不能被其他进程强行夺走，即只能由获得该资源的进程自己来释放（只能是主动释放)。</p>
+<p><strong>●</strong> <strong>循环等待条件</strong>：指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</p>
+<p>这四个条件是死锁的必要条件，只要系统发生死锁，这些条件必然成立，而只要上述条件之一不满足，就不会发生死锁。</p>
+<h3 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h3><p>后缀式 ab+cd+/ 可用表达式 ___ 来表示。</p>
+<ul>
+<li>a+b/c+d</li>
+<li>(a+b)/(c+d)</li>
+<li>a+b/(c+d)</li>
+<li>a+b+c/d</li>
+</ul>
+<p>正确答案：B</p>
+<p> <strong>后缀式是指把运算符放至操作数之后，ab+等价于a+b，ab+cd+/等价于两式相除</strong> </p>
+<h3 id="虚函数特点"><a href="#虚函数特点" class="headerlink" title="虚函数特点"></a>虚函数特点</h3><p> ①只有<strong>类的成员函数</strong>才能说明为虚函数。这是因为虚函数仅适用于<strong>有继承关系的类对象</strong>，所以普通函数不能说明为虚函数。 </p>
+<p>②<strong>静态成员函数不能</strong>是虚函数，因为静态成员函数不受限于某个对象。 </p>
+<p>③<strong>内联函数不能是</strong>虚函数，因为内联函数是<strong>不能在运行中动态确定其位置</strong>。即使虚函数在类的内部定义，编译时仍将其看作是非内联的。 </p>
+<p>④<strong>构造函数不能是</strong>虚函数，因为构造时对象还是一片未定型的空间。只有在构造完成后，对象才能成为一个类的名副其实的实例。 </p>
+<p>⑤<strong>析构函数可以是虚函数</strong>，而且通常说明为虚函数。说明虚函数的目的在于；使用 delete运算符删除一个对象时，能确保析构函数被正确地执行。这是因为设置虚析构函数后，可以利用<strong>动态联编方式选择析构函数</strong>。 </p>
+<p>⑥一般要求基类中说明了虚函数后，<strong>派生类说明的虚函数应该与基类中虚函数的参数个数相等，对应参数的类型相同</strong>。如果不相同，则将派生类虚函数的参数类型强制转换为基类中虚函数的参数类型。</p>
+
       
 
       
@@ -277,6 +339,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/10/14/pair的用法总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          pair的用法总结
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/09/25/FP面试/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">FP面试</div>
@@ -306,7 +377,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#位运算"><span class="toc-number">1.</span> <span class="toc-text">位运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接"><span class="toc-number">2.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#struct和class的区别"><span class="toc-number">3.</span> <span class="toc-text">struct和class的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#区别"><span class="toc-number">3.1.</span> <span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">4.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后缀表达式"><span class="toc-number">5.</span> <span class="toc-text">后缀表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚函数特点"><span class="toc-number">6.</span> <span class="toc-text">虚函数特点</span></a></li></ol>
                     </div>
                 </span>
             </div>

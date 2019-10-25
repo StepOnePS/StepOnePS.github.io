@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PzSgar</title>
+  <title>pair的用法总结 | PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="PzSgar">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="PAIR的用法总结1，pair的应用 pair是将2个数据组合成一组数据，当需要这样的需求时就可以使用pair，如stl中的map就是将key和value放在一起来保存。另一个应用是，当一个函数需要返回2个数据的时候，可以选择pair。 pair的实现是一个结构体，主要的两个成员变量是first second 因为是使用struct不是class，所以可以直接使用pair的成员变量。 其标准库类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pair的用法总结">
+<meta property="og:url" content="http://yoursite.com/2019/10/14/pair的用法总结/index.html">
 <meta property="og:site_name" content="PzSgar">
+<meta property="og:description" content="PAIR的用法总结1，pair的应用 pair是将2个数据组合成一组数据，当需要这样的需求时就可以使用pair，如stl中的map就是将key和value放在一起来保存。另一个应用是，当一个函数需要返回2个数据的时候，可以选择pair。 pair的实现是一个结构体，主要的两个成员变量是first second 因为是使用struct不是class，所以可以直接使用pair的成员变量。 其标准库类型">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-14T02:55:36.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PzSgar">
+<meta name="twitter:title" content="pair的用法总结">
+<meta name="twitter:description" content="PAIR的用法总结1，pair的应用 pair是将2个数据组合成一组数据，当需要这样的需求时就可以使用pair，如stl中的map就是将key和value放在一起来保存。另一个应用是，当一个函数需要返回2个数据的时候，可以选择pair。 pair的实现是一个结构体，主要的两个成员变量是first second 因为是使用struct不是class，所以可以直接使用pair的成员变量。 其标准库类型">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
   
@@ -158,41 +162,84 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-买苹果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-pair的用法总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/10/买苹果/">买苹果</a>
+    <h1 class="article-title" itemprop="name">
+      pair的用法总结
     </h1>
   
 
         
-        <a href="/2019/09/10/买苹果/" class="archive-article-date">
-  	<time datetime="2019-09-10T15:31:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
+        <a href="/2019/10/14/pair的用法总结/" class="archive-article-date">
+  	<time datetime="2019-10-14T02:34:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="买苹果问题"><a href="#买苹果问题" class="headerlink" title="买苹果问题"></a>买苹果问题</h1><p>小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。</p>
-<p><strong>输入描述:</strong></p>
-<p>输入一个整数n，表示小易想购买n(1 ≤ n ≤ 100)个苹果</p>
-<p><strong>输出描述:</strong></p>
-<p>输出一个整数表示最少需要购买的袋数，如果不能买恰好n个苹果则输出-1</p>
-<p><strong>输入例子:</strong><br>20<br><strong>输出例子:</strong><br>3</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a = n / <span class="number">6</span>;</span><br><span class="line">        <span class="keyword">int</span> b = n / <span class="number">8</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = b;i &gt;= <span class="number">0</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt;= a;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="number">6</span> * j + <span class="number">8</span> * i == n)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; j + i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="PAIR的用法总结"><a href="#PAIR的用法总结" class="headerlink" title="PAIR的用法总结"></a>PAIR的用法总结</h1><p>1，pair的应用</p>
+<p>pair是将2个数据组合成一组数据，当需要这样的需求时就可以使用pair，如stl中的map就是将key和value放在一起来保存。另一个应用是，当一个函数需要返回2个数据的时候，可以选择pair。 pair的实现是一个结构体，主要的两个成员变量是first second 因为是使用struct不是class，所以可以直接使用pair的成员变量。</p>
+<p>其标准库类型–pair类型定义在<strong>#include <utility></utility></strong>头文件中，定义如下：</p>
+<p>类模板：template&lt;class T1,class T2&gt; struct pair</p>
+<p>参数：T1是第一个值的数据类型，T2是第二个值的数据类型。</p>
+<p>功能：pair将一对值(T1和T2)组合成一个值，</p>
+<p>这一对值可以具有不同的数据类型（T1和T2），</p>
+<p>两个值可以分别用pair的两个公有函数first和second访问。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">定义(构造函数)：</span><br><span class="line">pair&lt;T1, T2&gt; p1;            <span class="comment">//创建一个空的pair对象（使用默认构造），它的两个元素分别是T1和T2类型，采用值初始化。</span></span><br><span class="line">pair&lt;T1, T2&gt; p1(v1, v2);    <span class="comment">//创建一个pair对象，它的两个元素分别是T1和T2类型，其中first成员初始化为v1，second成员初始化为v2。</span></span><br><span class="line">make_pair(v1, v2);          <span class="comment">// 以v1和v2的值创建一个新的pair对象，其元素类型分别是v1和v2的类型。</span></span><br><span class="line">p1 &lt; p2;                    <span class="comment">// 两个pair对象间的小于运算，其定义遵循字典次序：如 p1.first &lt; p2.first 或者 !(p2.first &lt; p1.first) &amp;&amp; (p1.second &lt; p2.second) 则返回true。</span></span><br><span class="line">p1 == p2；                  <span class="comment">// 如果两个对象的first和second依次相等，则这两个对象相等；该运算使用元素的==操作符。</span></span><br><span class="line">p1.first;                   <span class="comment">// 返回对象p1中名为first的公有数据成员</span></span><br><span class="line">p1.second;                 <span class="comment">// 返回对象p1中名为second的公有数据成员</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="keyword">int</span> N)</span> <span class="comment">// 总共的苹果数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=N/<span class="number">6</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((N-i*<span class="number">6</span>)%<span class="number">8</span>==<span class="number">0</span>) <span class="comment">//优先减去较小数的倍数</span></span><br><span class="line">            <span class="keyword">return</span> (i+(N<span class="number">-6</span>*i)/<span class="number">8</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2，pair的创建和初始化</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pair包含两个数值，与容器一样，pair也是一种模板类型。但是又与之前介绍的容器不同；</span><br><span class="line"></span><br><span class="line">在创建pair对象时，必须提供两个类型名，两个对应的类型名的类型不必相同</span><br><span class="line"></span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; anon;        <span class="comment">// 创建一个空对象anon，两个元素类型都是string</span></span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; word_count;     <span class="comment">// 创建一个空对象 word_count, 两个元素类型分别是string和int类型</span></span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; line;  <span class="comment">// 创建一个空对象line，两个元素类型分别是string和vector类型</span></span><br></pre></td></tr></table></figure>
 
+<p>当然也可以在定义时进行成员初始化：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; author(<span class="string">"James"</span>,<span class="string">"Joy"</span>);    <span class="comment">// 创建一个author对象，两个元素类型分别为string类型，并默认初始值为James和Joy。</span></span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; name_age(<span class="string">"Tom"</span>, <span class="string">"18"</span>);</span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; name_age2(name_age);    <span class="comment">// 拷贝构造初始化</span></span><br></pre></td></tr></table></figure>
 
+<p>pair类型的使用相当的繁琐，如果定义多个相同的pair类型对象，可以使用typedef简化声明：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt; Author;</span><br><span class="line"><span class="function">Author <span class="title">proust</span><span class="params">(<span class="string">"March"</span>,<span class="string">"Proust"</span>)</span></span>;</span><br><span class="line"><span class="function">Author <span class="title">Joy</span><span class="params">(<span class="string">"James"</span>,<span class="string">"Joy"</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>变量间赋值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt; p1(<span class="number">1</span>, <span class="number">1.2</span>);</span><br><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt; p2 = p1;     <span class="comment">//operator =</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3，pair对象的操作"><a href="#3，pair对象的操作" class="headerlink" title="3，pair对象的操作"></a>3，pair对象的操作</h2><p>访问两个元素操作可以通过first和sencond访问：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="keyword">int</span> ,<span class="keyword">double</span>&gt; p1;</span><br><span class="line"></span><br><span class="line">p1.first = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">p1.second = <span class="number">2.5</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;p1.first&lt;&lt;<span class="string">' '</span>&lt;&lt;p1.second&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果：1 2.5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> firstBook;</span><br><span class="line"><span class="keyword">if</span>(author.first==<span class="string">"James"</span> &amp;&amp; author.second==<span class="string">"Joy"</span>)</span><br><span class="line">    firstBook=<span class="string">"Stephen Hero"</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4，生成新的pair对象"><a href="#4，生成新的pair对象" class="headerlink" title="4，生成新的pair对象"></a>4，生成新的pair对象</h2><p>还可以利用make_pair创建新的pair对象：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt; p1;</span><br><span class="line"> p1 = make_pair(<span class="number">1</span>, <span class="number">1.2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p1.first &lt;&lt; p1.second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//output: 1 1.2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> m = <span class="string">"James"</span>;</span><br><span class="line"></span><br><span class="line">pair&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; newone;</span><br><span class="line"></span><br><span class="line">newone = make_pair(a, m);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; newone.first &lt;&lt; newone.second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//output: 8 James</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5，通过tie获取pair元素值"><a href="#5，通过tie获取pair元素值" class="headerlink" title="5，通过tie获取pair元素值"></a>5，通过tie获取pair元素值</h2><p>在某些清况函数会以pair对象作为返回值时，可以直接通过<strong>std::tie</strong>进行接收。比如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::pair&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt; getPreson() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">std</span>::make_pair(<span class="string">"Sven"</span>, <span class="number">25</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">int</span> ages;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::tie(name, ages) = getPreson();</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"name: "</span> &lt;&lt; name &lt;&lt; <span class="string">", ages: "</span> &lt;&lt; ages &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>恭喜你，投喂成功！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -201,16 +248,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/10/买苹果/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/14/pair的用法总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/10/14/Typora用法-Markdown语法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Typora用法&amp;&amp;Markdown语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/14/10-14整理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">10.14整理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -225,587 +340,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Git与分布式架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/09/Git与分布式架构/">Git与分布式架构</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/09/Git与分布式架构/" class="archive-article-date">
-  	<time datetime="2019-09-09T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git与分布式架构"><a href="#Git与分布式架构" class="headerlink" title="Git与分布式架构"></a>Git与分布式架构</h1><p>1.版本控制的分布式和集中式的区别：<br>CVS及SVN这些集中式的版本控制系统，而Git是分布式版本控制系统</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/09/Git与分布式架构/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PAIR的用法总结"><span class="toc-number">1.</span> <span class="toc-text">PAIR的用法总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3，pair对象的操作"><span class="toc-number">1.1.</span> <span class="toc-text">3，pair对象的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4，生成新的pair对象"><span class="toc-number">1.2.</span> <span class="toc-text">4，生成新的pair对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5，通过tie获取pair元素值"><span class="toc-number">1.3.</span> <span class="toc-text">5，通过tie获取pair元素值</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Qt之信号槽" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/09/Qt之信号槽/">Qt之信号槽</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/09/Qt之信号槽/" class="archive-article-date">
-  	<time datetime="2019-09-09T07:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Qt信号与槽"><a href="#Qt信号与槽" class="headerlink" title="Qt信号与槽"></a>Qt信号与槽</h1><p>  信号与槽（Signal &amp; Slot）是 Qt 编程的基础，也是 Qt 的一大创新。因为有了信号与槽的编程机制，在 Qt 中处理界面各个组件的交互操作时变得更加直观和简单。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/09/Qt之信号槽/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-红黑树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/08/红黑树/">红黑树</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/08/红黑树/" class="archive-article-date">
-  	<time datetime="2019-09-08T04:54:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p><strong>1.为什么需要红黑树？</strong></p>
-<p>对于二叉搜索树，如果插入的数据是随机的，那么它就是接近平衡的二叉树，平衡的二叉树，它的操作效率（查询，插入，删除）效率较高，时间复杂度是O（logN）。但是可能会出现一种极端的情况，那就是插入的数据是有序的（递增或者递减），那么所有的节点都会在根节点的右侧或左侧，此时，二叉搜索树就变为了一个链表，它的操作效率就降低了，时间复杂度为O(N)，所以可以认为二叉搜索树的时间复杂度介于O（logN）和O(N)之间，视情况而定。那么为了应对这种极端情况，红黑树就出现了，它是具备了某些特性的二叉搜索树，能解决非平衡树问题，红黑树是一种接近平衡的二叉树。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/08/红黑树/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-排序-大话数据结构精简笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/排序-大话数据结构精简笔记/">排序-大话数据结构精简笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/29/排序-大话数据结构精简笔记/" class="archive-article-date">
-  	<time datetime="2019-08-29T14:19:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="排序-大话数据结构精简笔记"><a href="#排序-大话数据结构精简笔记" class="headerlink" title="排序-大话数据结构精简笔记"></a>排序-大话数据结构精简笔记</h1><h2 id="一、排序概念与分类"><a href="#一、排序概念与分类" class="headerlink" title="一、排序概念与分类"></a>一、排序概念与分类</h2><p>假设含有n个记录的序列为{r1,r2,……,rn}，其相应的关键字分别为{k1,k2,……,kn}，需确定1，2，……，n的一种排列p1,p2,……,pn，使其相应的关键字满足kp1≤kp2≤……≤kpn（非递减或非递增）关系，即使<strong>得序列成为一个按关键字有序的序列{rp1,rp2,……,rpn}，这样的操作就称为排序。</strong></p>
-<p>通常将数据元素称为记录，排序看成是线性表的一种操作。</p>
-<p>字符串首尾连接【组合排序】：多个关键字的排序最终都可以转化为单个关键字的排序</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/排序-大话数据结构精简笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-查找-大话数据结构笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/查找-大话数据结构笔记/">查找-大话数据结构笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/29/查找-大话数据结构笔记/" class="archive-article-date">
-  	<time datetime="2019-08-29T13:46:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="查找—大话数据结构精简笔记"><a href="#查找—大话数据结构精简笔记" class="headerlink" title="查找—大话数据结构精简笔记"></a>查找—大话数据结构精简笔记</h1><h4 id="1-查找"><a href="#1-查找" class="headerlink" title="1.查找"></a>1.查找</h4><h5 id="1-1顺序查找表优化"><a href="#1-1顺序查找表优化" class="headerlink" title="1.1顺序查找表优化"></a>1.1顺序查找表优化</h5><p>循环时需要检查是否对len越界，需要判断。</p>
-<p>尾部开始，头部哨兵。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/查找-大话数据结构笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SSQL基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/28/SSQL基础/">SQL基础</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/28/SSQL基础/" class="archive-article-date">
-  	<time datetime="2019-08-28T07:54:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>SQL 是用于访问和处理数据库的标准的计算机语言。</strong></p>
-<h2 id="什么是-SQL？"><a href="#什么是-SQL？" class="headerlink" title="什么是 SQL？"></a>什么是 SQL？</h2><ul>
-<li>SQL 指结构化查询语言</li>
-<li>SQL 使我们有能力访问数据库</li>
-<li>SQL 是一种 ANSI 的标准计算机语言</li>
-</ul>
-<p><strong>注：</strong>ANSI，美国国家标准化组织</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/28/SSQL基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vector容器浅析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/27/vector容器浅析/">vector容器浅析</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/27/vector容器浅析/" class="archive-article-date">
-  	<time datetime="2019-08-27T12:57:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="C-vector-容器浅析"><a href="#C-vector-容器浅析" class="headerlink" title="C++ vector 容器浅析"></a>C++ vector 容器浅析</h1><h2 id="一、什么是vector？"><a href="#一、什么是vector？" class="headerlink" title="一、什么是vector？"></a>一、什么是vector？</h2><p>向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，向量是一个能够存放任意类型的动态数组。</p>
-<hr>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/27/vector容器浅析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-点是否在三角形内" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内"><a href="#给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内" class="headerlink" title="给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内"></a>给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内</h1><blockquote>
-<p>给定三角形ABC和一点P(x, y, z)，判断点P是是否在ABC内，给出思路并手写代码</p>
-</blockquote>
-<p>根据面积法，如果P在三角形ABC内，那么三角形ABP的面积+三角形BCP的面积+三角形ACP的面积应该等于三角形ABC的面积。算法如下：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/19/点是否在三角形内/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数组中重复的数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/19/数组中重复的数字/">数组中重复的数字</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/19/数组中重复的数字/" class="archive-article-date">
-  	<time datetime="2019-08-19T07:40:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数组中重复的数字"><a href="#数组中重复的数字" class="headerlink" title="数组中重复的数字"></a>数组中重复的数字</h1><blockquote>
-<p>题目一：找出数组中重复的数字</p>
-<p>在一个长度为n的数组里的所有数字都在0~~n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请超出数组中<strong>任意一个</strong>重复的数字。例如，如果输入长为为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
-<p>ps：读题很关键。</p>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/19/数组中重复的数字/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -831,8 +391,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

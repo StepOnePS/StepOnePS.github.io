@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PzSgar</title>
+  <title>共线点的个数 | PzSgar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="PzSgar">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。 123456789101112示例 1:输入: [[1,1],[2,2],[3,3]]输出: 3解释:^||        o|     o|  o  +-------------&amp;gt;0  1  2  3  4  12345678910111213示例 2:输入: [[1,1],[3,2],[5,3],[4,1],[2,3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="共线点的个数">
+<meta property="og:url" content="http://yoursite.com/2019/10/14/共线点的个数/index.html">
 <meta property="og:site_name" content="PzSgar">
+<meta property="og:description" content="给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。 123456789101112示例 1:输入: [[1,1],[2,2],[3,3]]输出: 3解释:^||        o|     o|  o  +-------------&amp;gt;0  1  2  3  4  12345678910111213示例 2:输入: [[1,1],[3,2],[5,3],[4,1],[2,3">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-14T04:28:42.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PzSgar">
+<meta name="twitter:title" content="共线点的个数">
+<meta name="twitter:description" content="给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。 123456789101112示例 1:输入: [[1,1],[2,2],[3,3]]输出: 3解释:^||        o|     o|  o  +-------------&amp;gt;0  1  2  3  4  12345678910111213示例 2:输入: [[1,1],[3,2],[5,3],[4,1],[2,3">
   
     <link rel="alternative" href="/atom.xml" title="PzSgar" type="application/atom+xml">
   
@@ -158,41 +162,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-买苹果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-共线点的个数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/10/买苹果/">买苹果</a>
+    <h1 class="article-title" itemprop="name">
+      共线点的个数
     </h1>
   
 
         
-        <a href="/2019/09/10/买苹果/" class="archive-article-date">
-  	<time datetime="2019-09-10T15:31:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
+        <a href="/2019/10/14/共线点的个数/" class="archive-article-date">
+  	<time datetime="2019-10-14T04:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="买苹果问题"><a href="#买苹果问题" class="headerlink" title="买苹果问题"></a>买苹果问题</h1><p>小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。</p>
-<p><strong>输入描述:</strong></p>
-<p>输入一个整数n，表示小易想购买n(1 ≤ n ≤ 100)个苹果</p>
-<p><strong>输出描述:</strong></p>
-<p>输出一个整数表示最少需要购买的袋数，如果不能买恰好n个苹果则输出-1</p>
-<p><strong>输入例子:</strong><br>20<br><strong>输出例子:</strong><br>3</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a = n / <span class="number">6</span>;</span><br><span class="line">        <span class="keyword">int</span> b = n / <span class="number">8</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = b;i &gt;= <span class="number">0</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt;= a;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="number">6</span> * j + <span class="number">8</span> * i == n)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; j + i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><strong>给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [[1,1],[2,2],[3,3]]</span><br><span class="line">输出: 3</span><br><span class="line">解释:</span><br><span class="line">^</span><br><span class="line">|</span><br><span class="line">|        o</span><br><span class="line">|     o</span><br><span class="line">|  o  </span><br><span class="line">+-------------&gt;</span><br><span class="line">0  1  2  3  4</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="keyword">int</span> N)</span> <span class="comment">// 总共的苹果数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=N/<span class="number">6</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((N-i*<span class="number">6</span>)%<span class="number">8</span>==<span class="number">0</span>) <span class="comment">//优先减去较小数的倍数</span></span><br><span class="line">            <span class="keyword">return</span> (i+(N<span class="number">-6</span>*i)/<span class="number">8</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]</span><br><span class="line">输出: 4</span><br><span class="line">解释:</span><br><span class="line">^</span><br><span class="line">|</span><br><span class="line">|  o</span><br><span class="line">|     o        o</span><br><span class="line">|        o</span><br><span class="line">|  o        o</span><br><span class="line">+-------------------&gt;</span><br><span class="line">0  1  2  3  4  5  6</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><p>两个不相同的点确定一条直线，我们应该遍历所有的直线。</p>
+<p>如果有n个点的话，那么共有n(n-1)/2 条直线，那么程序里面应该怎么写呢？难道是 </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j =<span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( j != i)  &#123;........&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样的写法显然会有重复。所以要改进，实际上，上述问题也是n个点求两两组合的问题。举个简单的例子： a b c d e 五个点，我们可以这样遍历：ab ac ad ae bc bd be cd ce de  . 所以正确的框架为：  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n<span class="number">-1</span>; i++)    </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;n; j++)  &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在本题中因为是取两点，然后确定之后的点是否在这两点构成的直线上，所以区间各减一，也就是</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n<span class="number">-2</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;n<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=j+<span class="number">1</span>; k&lt;n; k++)  &#123;验证k是否在有i j构成的直线上&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，再考虑一下这道题的特殊情况，就是第i点的后面有可能有与i点相同的点（重复点），所以这时候要把i更新为最后的那个i点，同样的对j遍历的时候也是一样的。 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxPoints</span><span class="params">(<span class="built_in">vector</span>&lt;Point&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        sort(points.begin(),points.end(),cmp);  <span class="comment">//按照cmp规则对数组排序</span></span><br><span class="line">        <span class="keyword">if</span>(points.size()&lt;<span class="number">3</span>)</span><br><span class="line">            <span class="keyword">return</span> points.size();  <span class="comment">//0 1 2的情况int ans=2,count1=1,count2=1;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;points.size()<span class="number">-2</span>;i++)&#123;  <span class="comment">//i的区间是从第一个点到倒数第三个点   </span></span><br><span class="line">        count1=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;points.size()<span class="number">-3</span> &amp;&amp; points[i+<span class="number">1</span>].x==points[i].x &amp;&amp; points[i+<span class="number">1</span>].y==points[i].y)&#123;</span><br><span class="line">            count1++;   <span class="comment">//重复点处理，count1就是当前的i重复点的个数    </span></span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;points.size()<span class="number">-1</span>;j++)&#123;</span><br><span class="line">            count2=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j&lt;points.size()<span class="number">-2</span> &amp;&amp; points[j+<span class="number">1</span>].x==points[j].x &amp;&amp; points[j+<span class="number">1</span>].y==points[j].y)&#123;</span><br><span class="line">                count2++;   <span class="comment">//重复点处理，当前j的重复点的个数 </span></span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> tmp=count1+count2;  <span class="comment">//由i j构成的这条直线上已经有了这么多点</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=j+<span class="number">1</span>;k&lt;points.size();k++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(isLine(points[i],points[j],points[k]))</span><br><span class="line">                    tmp++;</span><br><span class="line">            &#125;</span><br><span class="line">            ans=ans&gt;tmp?ans:tmp;  <span class="comment">// ans = max(ans, tmp);   </span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Point&amp; a,Point&amp; b)</span></span>&#123;   <span class="comment">//注意这里：sort的比较函数必须写在类外部（即全局区域）或者声明为静态函数</span></span><br><span class="line">    <span class="keyword">if</span>(a.x!=b.x)</span><br><span class="line">        <span class="keyword">return</span> a.x&lt;b.x;  <span class="comment">//按照点的横坐标进行排序 </span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> a.y&lt;b.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isLine</span><span class="params">(Point&amp; a,Point&amp; b,Point&amp; c)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp1=((<span class="keyword">long</span> <span class="keyword">long</span>)a.x-b.x)*((<span class="keyword">long</span> <span class="keyword">long</span>)a.y-c.y);   <span class="comment">//可能超出int的范围 所有用 long long</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp2=((<span class="keyword">long</span> <span class="keyword">long</span>)a.x-c.x)*((<span class="keyword">long</span> <span class="keyword">long</span>)a.y-b.y);</span><br><span class="line">    <span class="comment">//  这里注意三个点P1(x1,y1) P2(x2, y2) P3(x3, y3)  共线满足 (y1-y2)/(x1-x2) == (y1-y3)/(x1-x3) 分母可能为0 故直接改为</span></span><br><span class="line">    <span class="comment">// 乘法: (y1-y3)*(x1-x2)==(y1-y2)*(x1-x3) 就是共线的充要条件   </span></span><br><span class="line">    <span class="keyword">return</span> tmp1 == tmp2 ? <span class="literal">true</span> : <span class="literal">false</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二"><a href="#二" class="headerlink" title="二"></a>二</h3><p>哈希表定义的结构与以往不同，表的key值为坐标点，存的是在改直线上点的个数。<br>解题的主要思路是对点的集合从头到尾遍历一次，每次循环以当前点为目标，对其他点进行求解斜率k。由于每次确定了一个点的坐标，不用再考虑b的大小。这种方法使得计算变得简单，减少了需要存储的值，并且每次循环结束后，需要对哈希表进行空间的释放，也节省了空间。<br>其实，为了实现快速查找，map内部本身就是按序存储的（比如红黑树）。在我们插入键值对时，就会按照key的大小顺序进行存储。这也是作为key的类型必须能够进行&lt;运算比较的原因。现在我们用Point类型作为key，因此，我们的存储顺序需要自定义。<br>哈希表的key值为Point类型，进行存储时使用的技巧很巧妙，运用了一点数学技巧。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Definition for a point.</span></span><br><span class="line"><span class="comment">* struct Point &#123;</span></span><br><span class="line"><span class="comment">*     int x;</span></span><br><span class="line"><span class="comment">*     int y;</span></span><br><span class="line"><span class="comment">*     Point() : x(0), y(0) &#123;&#125;</span></span><br><span class="line"><span class="comment">*     Point(int a, int b) : x(a), y(b) &#123;&#125;</span></span><br><span class="line"><span class="comment">* &#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;<span class="comment">//最大公约数</span></span><br><span class="line">        <span class="keyword">return</span> b ? gcd(b, a % b) : a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">cmp</span>&#123;</span></span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> Point &amp;a, <span class="keyword">const</span> Point &amp;b)</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a.x &lt; b.x || (a.x == b.x &amp;&amp; a.y &lt; b.y);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxPoints</span><span class="params">(<span class="built_in">vector</span>&lt;Point&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (points.empty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">map</span>&lt;Point, <span class="keyword">int</span>, cmp&gt; A;</span><br><span class="line">        <span class="keyword">int</span> L = points.size(), ans = <span class="number">1</span>, n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (L - i &lt;= ans) </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            A.clear(); </span><br><span class="line">            n = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; L; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> a = points[i].x - points[j].x, b = points[i].y - points[j].y;</span><br><span class="line">                <span class="keyword">if</span> (!(a | b)) &#123; </span><br><span class="line">                    n ++; </span><br><span class="line">                    <span class="keyword">continue</span>; </span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (!a) </span><br><span class="line">                    A[Point(<span class="number">0</span>, <span class="number">1</span>)] ++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (!b) </span><br><span class="line">                    A[Point(<span class="number">1</span>, <span class="number">0</span>)] ++;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">int</span> k = gcd(a, b);</span><br><span class="line">                    A[Point(a / k, b / k)] ++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = max(ans, n);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;x : A)</span><br><span class="line">                ans = max(ans, x.second + n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>恭喜你，投喂成功！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -201,16 +240,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/10/买苹果/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/14/共线点的个数/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/10/25/ydxn总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ydxn总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/14/Typora用法-Markdown语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Typora用法&amp;&amp;Markdown语法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -225,587 +332,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Git与分布式架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/09/Git与分布式架构/">Git与分布式架构</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/09/Git与分布式架构/" class="archive-article-date">
-  	<time datetime="2019-09-09T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git与分布式架构"><a href="#Git与分布式架构" class="headerlink" title="Git与分布式架构"></a>Git与分布式架构</h1><p>1.版本控制的分布式和集中式的区别：<br>CVS及SVN这些集中式的版本控制系统，而Git是分布式版本控制系统</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/09/Git与分布式架构/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一："><span class="toc-number">1.</span> <span class="toc-text">方法一：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二"><span class="toc-number"></span> <span class="toc-text">二</span></a>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Qt之信号槽" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/09/Qt之信号槽/">Qt之信号槽</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/09/Qt之信号槽/" class="archive-article-date">
-  	<time datetime="2019-09-09T07:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Qt信号与槽"><a href="#Qt信号与槽" class="headerlink" title="Qt信号与槽"></a>Qt信号与槽</h1><p>  信号与槽（Signal &amp; Slot）是 Qt 编程的基础，也是 Qt 的一大创新。因为有了信号与槽的编程机制，在 Qt 中处理界面各个组件的交互操作时变得更加直观和简单。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/09/Qt之信号槽/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-红黑树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/08/红黑树/">红黑树</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/08/红黑树/" class="archive-article-date">
-  	<time datetime="2019-09-08T04:54:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p><strong>1.为什么需要红黑树？</strong></p>
-<p>对于二叉搜索树，如果插入的数据是随机的，那么它就是接近平衡的二叉树，平衡的二叉树，它的操作效率（查询，插入，删除）效率较高，时间复杂度是O（logN）。但是可能会出现一种极端的情况，那就是插入的数据是有序的（递增或者递减），那么所有的节点都会在根节点的右侧或左侧，此时，二叉搜索树就变为了一个链表，它的操作效率就降低了，时间复杂度为O(N)，所以可以认为二叉搜索树的时间复杂度介于O（logN）和O(N)之间，视情况而定。那么为了应对这种极端情况，红黑树就出现了，它是具备了某些特性的二叉搜索树，能解决非平衡树问题，红黑树是一种接近平衡的二叉树。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/08/红黑树/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-排序-大话数据结构精简笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/排序-大话数据结构精简笔记/">排序-大话数据结构精简笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/29/排序-大话数据结构精简笔记/" class="archive-article-date">
-  	<time datetime="2019-08-29T14:19:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="排序-大话数据结构精简笔记"><a href="#排序-大话数据结构精简笔记" class="headerlink" title="排序-大话数据结构精简笔记"></a>排序-大话数据结构精简笔记</h1><h2 id="一、排序概念与分类"><a href="#一、排序概念与分类" class="headerlink" title="一、排序概念与分类"></a>一、排序概念与分类</h2><p>假设含有n个记录的序列为{r1,r2,……,rn}，其相应的关键字分别为{k1,k2,……,kn}，需确定1，2，……，n的一种排列p1,p2,……,pn，使其相应的关键字满足kp1≤kp2≤……≤kpn（非递减或非递增）关系，即使<strong>得序列成为一个按关键字有序的序列{rp1,rp2,……,rpn}，这样的操作就称为排序。</strong></p>
-<p>通常将数据元素称为记录，排序看成是线性表的一种操作。</p>
-<p>字符串首尾连接【组合排序】：多个关键字的排序最终都可以转化为单个关键字的排序</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/排序-大话数据结构精简笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-查找-大话数据结构笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/查找-大话数据结构笔记/">查找-大话数据结构笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/29/查找-大话数据结构笔记/" class="archive-article-date">
-  	<time datetime="2019-08-29T13:46:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="查找—大话数据结构精简笔记"><a href="#查找—大话数据结构精简笔记" class="headerlink" title="查找—大话数据结构精简笔记"></a>查找—大话数据结构精简笔记</h1><h4 id="1-查找"><a href="#1-查找" class="headerlink" title="1.查找"></a>1.查找</h4><h5 id="1-1顺序查找表优化"><a href="#1-1顺序查找表优化" class="headerlink" title="1.1顺序查找表优化"></a>1.1顺序查找表优化</h5><p>循环时需要检查是否对len越界，需要判断。</p>
-<p>尾部开始，头部哨兵。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/查找-大话数据结构笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SSQL基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/28/SSQL基础/">SQL基础</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/28/SSQL基础/" class="archive-article-date">
-  	<time datetime="2019-08-28T07:54:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>SQL 是用于访问和处理数据库的标准的计算机语言。</strong></p>
-<h2 id="什么是-SQL？"><a href="#什么是-SQL？" class="headerlink" title="什么是 SQL？"></a>什么是 SQL？</h2><ul>
-<li>SQL 指结构化查询语言</li>
-<li>SQL 使我们有能力访问数据库</li>
-<li>SQL 是一种 ANSI 的标准计算机语言</li>
-</ul>
-<p><strong>注：</strong>ANSI，美国国家标准化组织</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/28/SSQL基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vector容器浅析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/27/vector容器浅析/">vector容器浅析</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/27/vector容器浅析/" class="archive-article-date">
-  	<time datetime="2019-08-27T12:57:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="C-vector-容器浅析"><a href="#C-vector-容器浅析" class="headerlink" title="C++ vector 容器浅析"></a>C++ vector 容器浅析</h1><h2 id="一、什么是vector？"><a href="#一、什么是vector？" class="headerlink" title="一、什么是vector？"></a>一、什么是vector？</h2><p>向量（Vector）是一个封装了动态大小数组的顺序容器（Sequence Container）。跟任意其它类型容器一样，它能够存放各种类型的对象。可以简单的认为，向量是一个能够存放任意类型的动态数组。</p>
-<hr>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/27/vector容器浅析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-点是否在三角形内" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内"><a href="#给定三角形ABC三点坐标，判断点P（x-y-z）是否在三角形内" class="headerlink" title="给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内"></a>给定三角形ABC三点坐标，判断点P（x, y, z）是否在三角形内</h1><blockquote>
-<p>给定三角形ABC和一点P(x, y, z)，判断点P是是否在ABC内，给出思路并手写代码</p>
-</blockquote>
-<p>根据面积法，如果P在三角形ABC内，那么三角形ABP的面积+三角形BCP的面积+三角形ACP的面积应该等于三角形ABC的面积。算法如下：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/19/点是否在三角形内/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数组中重复的数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/19/数组中重复的数字/">数组中重复的数字</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/19/数组中重复的数字/" class="archive-article-date">
-  	<time datetime="2019-08-19T07:40:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数组中重复的数字"><a href="#数组中重复的数字" class="headerlink" title="数组中重复的数字"></a>数组中重复的数字</h1><blockquote>
-<p>题目一：找出数组中重复的数字</p>
-<p>在一个长度为n的数组里的所有数字都在0~~n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请超出数组中<strong>任意一个</strong>重复的数字。例如，如果输入长为为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
-<p>ps：读题很关键。</p>
-</blockquote>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/19/数组中重复的数字/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -831,8 +383,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -160,6 +160,392 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ydxn总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/25/ydxn总结/">ydxn总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/25/ydxn总结/" class="archive-article-date">
+  	<time datetime="2019-10-25T05:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/25/ydxn总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-共线点的个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/14/共线点的个数/">共线点的个数</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/14/共线点的个数/" class="archive-article-date">
+  	<time datetime="2019-10-14T04:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: [[1,1],[2,2],[3,3]]</span><br><span class="line">输出: 3</span><br><span class="line">解释:</span><br><span class="line">^</span><br><span class="line">|</span><br><span class="line">|        o</span><br><span class="line">|     o</span><br><span class="line">|  o  </span><br><span class="line">+-------------&gt;</span><br><span class="line">0  1  2  3  4</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]</span><br><span class="line">输出: 4</span><br><span class="line">解释:</span><br><span class="line">^</span><br><span class="line">|</span><br><span class="line">|  o</span><br><span class="line">|     o        o</span><br><span class="line">|        o</span><br><span class="line">|  o        o</span><br><span class="line">+-------------------&gt;</span><br><span class="line">0  1  2  3  4  5  6</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h4><p>两个不相同的点确定一条直线，我们应该遍历所有的直线。</p>
+<p>如果有n个点的话，那么共有n(n-1)/2 条直线，那么程序里面应该怎么写呢？难道是 </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j =<span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( j != i)  &#123;........&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样的写法显然会有重复。所以要改进，实际上，上述问题也是n个点求两两组合的问题。举个简单的例子： a b c d e 五个点，我们可以这样遍历：ab ac ad ae bc bd be cd ce de  . 所以正确的框架为：  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n<span class="number">-1</span>; i++)    </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;n; j++)  &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在本题中因为是取两点，然后确定之后的点是否在这两点构成的直线上，所以区间各减一，也就是</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n<span class="number">-2</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;n<span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=j+<span class="number">1</span>; k&lt;n; k++)  &#123;验证k是否在有i j构成的直线上&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，再考虑一下这道题的特殊情况，就是第i点的后面有可能有与i点相同的点（重复点），所以这时候要把i更新为最后的那个i点，同样的对j遍历的时候也是一样的。 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxPoints</span><span class="params">(<span class="built_in">vector</span>&lt;Point&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        sort(points.begin(),points.end(),cmp);  <span class="comment">//按照cmp规则对数组排序</span></span><br><span class="line">        <span class="keyword">if</span>(points.size()&lt;<span class="number">3</span>)</span><br><span class="line">            <span class="keyword">return</span> points.size();  <span class="comment">//0 1 2的情况int ans=2,count1=1,count2=1;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;points.size()<span class="number">-2</span>;i++)&#123;  <span class="comment">//i的区间是从第一个点到倒数第三个点   </span></span><br><span class="line">        count1=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;points.size()<span class="number">-3</span> &amp;&amp; points[i+<span class="number">1</span>].x==points[i].x &amp;&amp; points[i+<span class="number">1</span>].y==points[i].y)&#123;</span><br><span class="line">            count1++;   <span class="comment">//重复点处理，count1就是当前的i重复点的个数    </span></span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;points.size()<span class="number">-1</span>;j++)&#123;</span><br><span class="line">            count2=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j&lt;points.size()<span class="number">-2</span> &amp;&amp; points[j+<span class="number">1</span>].x==points[j].x &amp;&amp; points[j+<span class="number">1</span>].y==points[j].y)&#123;</span><br><span class="line">                count2++;   <span class="comment">//重复点处理，当前j的重复点的个数 </span></span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> tmp=count1+count2;  <span class="comment">//由i j构成的这条直线上已经有了这么多点</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=j+<span class="number">1</span>;k&lt;points.size();k++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(isLine(points[i],points[j],points[k]))</span><br><span class="line">                    tmp++;</span><br><span class="line">            &#125;</span><br><span class="line">            ans=ans&gt;tmp?ans:tmp;  <span class="comment">// ans = max(ans, tmp);   </span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Point&amp; a,Point&amp; b)</span></span>&#123;   <span class="comment">//注意这里：sort的比较函数必须写在类外部（即全局区域）或者声明为静态函数</span></span><br><span class="line">    <span class="keyword">if</span>(a.x!=b.x)</span><br><span class="line">        <span class="keyword">return</span> a.x&lt;b.x;  <span class="comment">//按照点的横坐标进行排序 </span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> a.y&lt;b.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isLine</span><span class="params">(Point&amp; a,Point&amp; b,Point&amp; c)</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp1=((<span class="keyword">long</span> <span class="keyword">long</span>)a.x-b.x)*((<span class="keyword">long</span> <span class="keyword">long</span>)a.y-c.y);   <span class="comment">//可能超出int的范围 所有用 long long</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> tmp2=((<span class="keyword">long</span> <span class="keyword">long</span>)a.x-c.x)*((<span class="keyword">long</span> <span class="keyword">long</span>)a.y-b.y);</span><br><span class="line">    <span class="comment">//  这里注意三个点P1(x1,y1) P2(x2, y2) P3(x3, y3)  共线满足 (y1-y2)/(x1-x2) == (y1-y3)/(x1-x3) 分母可能为0 故直接改为</span></span><br><span class="line">    <span class="comment">// 乘法: (y1-y3)*(x1-x2)==(y1-y2)*(x1-x3) 就是共线的充要条件   </span></span><br><span class="line">    <span class="keyword">return</span> tmp1 == tmp2 ? <span class="literal">true</span> : <span class="literal">false</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二"><a href="#二" class="headerlink" title="二"></a>二</h3><p>哈希表定义的结构与以往不同，表的key值为坐标点，存的是在改直线上点的个数。<br>解题的主要思路是对点的集合从头到尾遍历一次，每次循环以当前点为目标，对其他点进行求解斜率k。由于每次确定了一个点的坐标，不用再考虑b的大小。这种方法使得计算变得简单，减少了需要存储的值，并且每次循环结束后，需要对哈希表进行空间的释放，也节省了空间。<br>其实，为了实现快速查找，map内部本身就是按序存储的（比如红黑树）。在我们插入键值对时，就会按照key的大小顺序进行存储。这也是作为key的类型必须能够进行&lt;运算比较的原因。现在我们用Point类型作为key，因此，我们的存储顺序需要自定义。<br>哈希表的key值为Point类型，进行存储时使用的技巧很巧妙，运用了一点数学技巧。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Definition for a point.</span></span><br><span class="line"><span class="comment">* struct Point &#123;</span></span><br><span class="line"><span class="comment">*     int x;</span></span><br><span class="line"><span class="comment">*     int y;</span></span><br><span class="line"><span class="comment">*     Point() : x(0), y(0) &#123;&#125;</span></span><br><span class="line"><span class="comment">*     Point(int a, int b) : x(a), y(b) &#123;&#125;</span></span><br><span class="line"><span class="comment">* &#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;<span class="comment">//最大公约数</span></span><br><span class="line">        <span class="keyword">return</span> b ? gcd(b, a % b) : a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">cmp</span>&#123;</span></span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> Point &amp;a, <span class="keyword">const</span> Point &amp;b)</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a.x &lt; b.x || (a.x == b.x &amp;&amp; a.y &lt; b.y);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxPoints</span><span class="params">(<span class="built_in">vector</span>&lt;Point&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (points.empty()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">map</span>&lt;Point, <span class="keyword">int</span>, cmp&gt; A;</span><br><span class="line">        <span class="keyword">int</span> L = points.size(), ans = <span class="number">1</span>, n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (L - i &lt;= ans) </span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            A.clear(); </span><br><span class="line">            n = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; L; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> a = points[i].x - points[j].x, b = points[i].y - points[j].y;</span><br><span class="line">                <span class="keyword">if</span> (!(a | b)) &#123; </span><br><span class="line">                    n ++; </span><br><span class="line">                    <span class="keyword">continue</span>; </span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (!a) </span><br><span class="line">                    A[Point(<span class="number">0</span>, <span class="number">1</span>)] ++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (!b) </span><br><span class="line">                    A[Point(<span class="number">1</span>, <span class="number">0</span>)] ++;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">int</span> k = gcd(a, b);</span><br><span class="line">                    A[Point(a / k, b / k)] ++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = max(ans, n);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;x : A)</span><br><span class="line">                ans = max(ans, x.second + n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/14/共线点的个数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Typora用法-Markdown语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/14/Typora用法-Markdown语法/">Typora用法&amp;&amp;Markdown语法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/14/Typora用法-Markdown语法/" class="archive-article-date">
+  	<time datetime="2019-10-14T02:56:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Typora用法-amp-amp-Markdown语法"><a href="#Typora用法-amp-amp-Markdown语法" class="headerlink" title="Typora用法&amp;&amp;Markdown语法"></a>Typora用法&amp;&amp;Markdown语法</h1><p> ” <strong>Markdown</strong> 是一种<strong>轻量级</strong>标记语言，创始人<strong>约翰·格鲁伯</strong>（John Gruber）。它允许人们 “使用易读易写的纯文本格式编写文档，然后转换成有效的 HTML 文档。” </p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[toc]</span><br></pre></td></tr></table></figure>
+
+<p>[toc]</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#		一级标题</span><br><span class="line">##		二级标题</span><br><span class="line">###		三级标题</span><br><span class="line">####	四级标题</span><br><span class="line">#####	五级标题</span><br><span class="line">######	六级标题</span><br></pre></td></tr></table></figure>
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 内容1</span><br><span class="line">&gt; 内容2</span><br><span class="line">&gt;&gt; 内容3</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>内容1<br>内容2</p>
+<blockquote>
+<p>内容3</p>
+</blockquote>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h4 id="单行代码"><a href="#单行代码" class="headerlink" title="单行代码"></a>单行代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`printf()`</span><br></pre></td></tr></table></figure>
+
+<p><code>printf()</code></p>
+<h4 id="多行代码"><a href="#多行代码" class="headerlink" title="多行代码"></a>多行代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 列表</span><br><span class="line"></span><br><span class="line">#### 无序列表</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>无序列表1</li>
+</ul>
+<ul>
+<li>无序列表2</li>
+</ul>
+<ul>
+<li>无须列表3<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 无序列表1</span><br><span class="line">+ 无序列表2</span><br><span class="line"></span><br><span class="line">- 无须列表3</span><br><span class="line"></span><br><span class="line">#### 多行无序列表</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>多行无序列表1<br>TAB * 多行无须列表<br>TAB TAB * 多行无须列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 多行无序列表</span><br><span class="line">  * 多行无须列表</span><br><span class="line">    * 多行无须列表</span><br><span class="line"></span><br><span class="line">#### 有序列表</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>有序列表1</li>
+<li>有序列表2</li>
+<li>有序列表3<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 有序列表1</span><br><span class="line">2. 有序列表2</span><br><span class="line">3. 有序列表3</span><br><span class="line"></span><br><span class="line">#### 任务列表</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><input disabled type="checkbox"> 干活</li>
+<li><input checked disabled type="checkbox"> 干活</li>
+<li><input disabled type="checkbox"> 干活<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- [ ] 干活</span><br><span class="line"></span><br><span class="line">- [x] 干活</span><br><span class="line">- [ ] 干活</span><br><span class="line"></span><br><span class="line">## 表格</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>|姓名|性别|年龄|出生日期|<br>|:—|:–:|:–:|—:|  //英文字符<br>|张三|男|24|12345678912|</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">| 姓名 | 性别 | 年龄 |    出生日期 |</span><br><span class="line">| :--- | :--: | :--: | ----------: |</span><br><span class="line">| 张三 |  男  |  24  | 12345678912 |</span><br><span class="line"></span><br><span class="line">## 图片</span><br><span class="line"></span><br><span class="line">~~~html</span><br><span class="line">&lt;div align=center&gt;</span><br><span class="line">    &lt; img src= &quot;XXX\XXXXX.png&quot; align=center style=&quot;zoom:100%&quot;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[百度][https://www.baidu.com]</span><br></pre></td></tr></table></figure>
+
+<p>[百度][<a href="https://www.baidu.com]" target="_blank" rel="noopener">https://www.baidu.com]</a></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[CSDN][CSDN网址]</span><br><span class="line">[CSDN网址]<span class="symbol">:https</span><span class="symbol">://www</span>.csdn.net/</span><br></pre></td></tr></table></figure>
+
+<p>[CSDN][CSDN网址]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;https://github.com/&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
+<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*斜体*</span><br><span class="line">_斜体_</span><br></pre></td></tr></table></figure>
+
+<p><em>斜体</em><br><em>斜体</em></p>
+<h2 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**加粗**</span><br><span class="line">__加粗__</span><br></pre></td></tr></table></figure>
+
+<p><strong>加粗</strong><br><strong>加粗</strong></p>
+<h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;u&gt;下划线&lt;/u&gt;</span><br></pre></td></tr></table></figure>
+
+<p><u>下划线</u></p>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
+
+<p><del>删除线</del></p>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line">___</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Typora[^1]</span><br><span class="line">[^1]A markdown editor</span><br></pre></td></tr></table></figure>
+
+<p>Typora[^1]<br>[^1]A markdown editor</p>
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$$ + enter</span><br><span class="line">快捷键Ctrl+Shift+m</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>1 + 2 = 3<br>$$</p>
+<h2 id="其他语法"><a href="#其他语法" class="headerlink" title="其他语法"></a>其他语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&amp;copy;      版权      </span><br><span class="line">&amp;reg;       注册商标</span><br><span class="line">&amp;trade;     商标</span><br><span class="line">&amp;nbsp;      空格</span><br><span class="line">&amp;amp;       和号</span><br><span class="line">&amp;quot;      引号</span><br><span class="line">&amp;apos;      撇号</span><br><span class="line">&amp;lt;        小于号</span><br><span class="line">&amp;gt;        大于号</span><br><span class="line">&amp;ne;        不等号</span><br><span class="line">&amp;le;        小于等于</span><br><span class="line">&amp;ge;        大于等于</span><br><span class="line">&amp;cent;      分</span><br><span class="line">&amp;pound;     磅</span><br><span class="line">&amp;euro;      欧元</span><br><span class="line">&amp;yen;       元</span><br><span class="line">&amp;sect;      节</span><br><span class="line">&amp;times;     乘号</span><br><span class="line">&amp;divide;    除号</span><br><span class="line">&amp;plusmn;    正负号</span><br></pre></td></tr></table></figure>
+
+<p> ©    ®    ™    &amp;    “    ‘    &lt;    &gt;    ≠    ≤    ≥    ¢    £    €    ¥    §    ×    ÷    ± </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/14/Typora用法-Markdown语法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-pair的用法总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/14/pair的用法总结/">pair的用法总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/14/pair的用法总结/" class="archive-article-date">
+  	<time datetime="2019-10-14T02:34:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PAIR的用法总结"><a href="#PAIR的用法总结" class="headerlink" title="PAIR的用法总结"></a>PAIR的用法总结</h1><p>1，pair的应用</p>
+<p>pair是将2个数据组合成一组数据，当需要这样的需求时就可以使用pair，如stl中的map就是将key和value放在一起来保存。另一个应用是，当一个函数需要返回2个数据的时候，可以选择pair。 pair的实现是一个结构体，主要的两个成员变量是first second 因为是使用struct不是class，所以可以直接使用pair的成员变量。</p>
+<p>其标准库类型–pair类型定义在<strong>#include <utility></utility></strong>头文件中，定义如下：</p>
+<p>类模板：template&lt;class T1,class T2&gt; struct pair</p>
+<p>参数：T1是第一个值的数据类型，T2是第二个值的数据类型。</p>
+<p>功能：pair将一对值(T1和T2)组合成一个值，</p>
+<p>这一对值可以具有不同的数据类型（T1和T2），</p>
+<p>两个值可以分别用pair的两个公有函数first和second访问。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">定义(构造函数)：</span><br><span class="line">pair&lt;T1, T2&gt; p1;            <span class="comment">//创建一个空的pair对象（使用默认构造），它的两个元素分别是T1和T2类型，采用值初始化。</span></span><br><span class="line">pair&lt;T1, T2&gt; p1(v1, v2);    <span class="comment">//创建一个pair对象，它的两个元素分别是T1和T2类型，其中first成员初始化为v1，second成员初始化为v2。</span></span><br><span class="line">make_pair(v1, v2);          <span class="comment">// 以v1和v2的值创建一个新的pair对象，其元素类型分别是v1和v2的类型。</span></span><br><span class="line">p1 &lt; p2;                    <span class="comment">// 两个pair对象间的小于运算，其定义遵循字典次序：如 p1.first &lt; p2.first 或者 !(p2.first &lt; p1.first) &amp;&amp; (p1.second &lt; p2.second) 则返回true。</span></span><br><span class="line">p1 == p2；                  <span class="comment">// 如果两个对象的first和second依次相等，则这两个对象相等；该运算使用元素的==操作符。</span></span><br><span class="line">p1.first;                   <span class="comment">// 返回对象p1中名为first的公有数据成员</span></span><br><span class="line">p1.second;                 <span class="comment">// 返回对象p1中名为second的公有数据成员</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2，pair的创建和初始化</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pair包含两个数值，与容器一样，pair也是一种模板类型。但是又与之前介绍的容器不同；</span><br><span class="line"></span><br><span class="line">在创建pair对象时，必须提供两个类型名，两个对应的类型名的类型不必相同</span><br><span class="line"></span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; anon;        <span class="comment">// 创建一个空对象anon，两个元素类型都是string</span></span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; word_count;     <span class="comment">// 创建一个空对象 word_count, 两个元素类型分别是string和int类型</span></span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; line;  <span class="comment">// 创建一个空对象line，两个元素类型分别是string和vector类型</span></span><br></pre></td></tr></table></figure>
+
+<p>当然也可以在定义时进行成员初始化：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; author(<span class="string">"James"</span>,<span class="string">"Joy"</span>);    <span class="comment">// 创建一个author对象，两个元素类型分别为string类型，并默认初始值为James和Joy。</span></span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; name_age(<span class="string">"Tom"</span>, <span class="string">"18"</span>);</span><br><span class="line">pair&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; name_age2(name_age);    <span class="comment">// 拷贝构造初始化</span></span><br></pre></td></tr></table></figure>
+
+<p>pair类型的使用相当的繁琐，如果定义多个相同的pair类型对象，可以使用typedef简化声明：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="built_in">string</span>,<span class="built_in">string</span>&gt; Author;</span><br><span class="line"><span class="function">Author <span class="title">proust</span><span class="params">(<span class="string">"March"</span>,<span class="string">"Proust"</span>)</span></span>;</span><br><span class="line"><span class="function">Author <span class="title">Joy</span><span class="params">(<span class="string">"James"</span>,<span class="string">"Joy"</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>变量间赋值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt; p1(<span class="number">1</span>, <span class="number">1.2</span>);</span><br><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt; p2 = p1;     <span class="comment">//operator =</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3，pair对象的操作"><a href="#3，pair对象的操作" class="headerlink" title="3，pair对象的操作"></a>3，pair对象的操作</h2><p>访问两个元素操作可以通过first和sencond访问：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="keyword">int</span> ,<span class="keyword">double</span>&gt; p1;</span><br><span class="line"></span><br><span class="line">p1.first = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">p1.second = <span class="number">2.5</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;p1.first&lt;&lt;<span class="string">' '</span>&lt;&lt;p1.second&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果：1 2.5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> firstBook;</span><br><span class="line"><span class="keyword">if</span>(author.first==<span class="string">"James"</span> &amp;&amp; author.second==<span class="string">"Joy"</span>)</span><br><span class="line">    firstBook=<span class="string">"Stephen Hero"</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4，生成新的pair对象"><a href="#4，生成新的pair对象" class="headerlink" title="4，生成新的pair对象"></a>4，生成新的pair对象</h2><p>还可以利用make_pair创建新的pair对象：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">double</span>&gt; p1;</span><br><span class="line"> p1 = make_pair(<span class="number">1</span>, <span class="number">1.2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p1.first &lt;&lt; p1.second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//output: 1 1.2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a = <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> m = <span class="string">"James"</span>;</span><br><span class="line"></span><br><span class="line">pair&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; newone;</span><br><span class="line"></span><br><span class="line">newone = make_pair(a, m);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; newone.first &lt;&lt; newone.second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//output: 8 James</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5，通过tie获取pair元素值"><a href="#5，通过tie获取pair元素值" class="headerlink" title="5，通过tie获取pair元素值"></a>5，通过tie获取pair元素值</h2><p>在某些清况函数会以pair对象作为返回值时，可以直接通过<strong>std::tie</strong>进行接收。比如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::pair&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt; getPreson() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">std</span>::make_pair(<span class="string">"Sven"</span>, <span class="number">25</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> name;</span><br><span class="line">    <span class="keyword">int</span> ages;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::tie(name, ages) = getPreson();</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"name: "</span> &lt;&lt; name &lt;&lt; <span class="string">", ages: "</span> &lt;&lt; ages &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/14/pair的用法总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-10-14整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -180,7 +566,66 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h3><ol>
+<li>下面的C语言语句，哪一个可以把一个<strong>32位变量</strong>的最高位置为1且保持其它位不变？ </li>
+</ol>
+<ul>
+<li>reg32|=1&lt;&lt;31;</li>
+<li>reg32&amp;=1&lt;&lt;31;</li>
+<li>reg32&amp;=~(1&lt;&lt;31);</li>
+<li>reg32^=1&lt;&lt;31;</li>
+</ul>
+<p>正确答案：A</p>
+<blockquote>
+<p>  1&lt;&lt;31的意思是将1的二进制左移31位，即将0000 0000 0000 0000 0000     0000 0000 0001 整体左移31位，右边的补零。  </p>
+<p>  结果为1 000 0000 0000 0000 0000 0000 0000 0000。  </p>
+<p>   reg32|=1&lt;&lt;31;的意思是reg32和 1 000 0000 0000 0000 0000 0000 0000 0000按位或（不管32位变量reg32是什么，都可以保证reg32最高位为1，其它位保持不变），并将结果赋给reg32。相当于reg32=reg32|（1&lt;&lt;31）。</p>
+</blockquote>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>2.<strong>链接</strong>是将各个编译单元中的<strong>变量和函数引用与定义进行绑定</strong>，保证程序中的变量和函数都有对应的尸体，若被调用函数未定义，就在此过程中会发现。</p>
+<p>另外请记住：编辑阶段创建和修改源程序；预处理阶段分析<strong>宏定义以及替换宏引用</strong>；编译过程是把源程序翻译为与之等价的<strong>目标程序</strong>。</p>
+<h3 id="struct和class的区别"><a href="#struct和class的区别" class="headerlink" title="struct和class的区别"></a><strong>struct和class的区别</strong></h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">	<span class="comment">//成员列表</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>面向过程的编程认为，数据和数据操作是分开的。然而当struct进入面向对象的c++时，在c++中认为数据和数据对象是一个整体，不应该分开，这就是struct在c和c++两个时代的差别。</p>
+<p>在C++中struct得到了很大的扩充：</p>
+<p><strong>1.struct可以包括成员函数</strong></p>
+<p><strong>2.struct可以实现继承</strong></p>
+<p><strong>3.struct可以实现多态</strong></p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><p> <strong>1.默认的继承访问权。class默认的是private,strcut默认的是public。</strong> </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">B</span>:</span> A</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p> strcut B就是公有继承（public）的struct A。如果将strcut变为 class 那么将会是私有继承(private)。写类的时候都会显示的写出是公有继承还是私有继承</p>
+<p> 到底默认是public继承还是private继承，<strong>取决于子类而不是基类</strong>。struct可以继承class，同样class也可以继承struct，那么默认的继承访问权限是看子类到底是用的struct还是class。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">B</span>:</span> A   <span class="comment">//共有继承</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span> A    <span class="comment">//私有继承</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> c</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>2.默认访问权限：struct作为数据结构的实现体，它默认的数据访问控制是public的，而class作为对象的实现体，它默认的成员变量访问控制是private的。</strong> </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	A n;</span><br><span class="line">	n.a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//可以在类外访问成员变量，所以struct默认是共有的</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> </span><br><span class="line">	B n1;</span><br><span class="line">	n1.b = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; <span class="comment">//在内外无法访问私有变量</span></span><br></pre></td></tr></table></figure>
+
+<p>  <strong>3.“class”这个关键字还用于定义模板参数，就像“typename”。但关键字“struct”不用于定义模板参数</strong> </p>
+<p>struct更适合看成是一个数据结构的实现体，class更适合看成是一个对象的实现体。</p>
+<p> <strong>4.class和struct在使用大括号{ }上的区别</strong></p>
+<p>关于使用大括号初始化<br>       1.）class和struct如果定义了构造函数的话，都不能用大括号进行初始化<br>　　2.）如果没有定义构造函数，struct可以用大括号初始化。<br>　　3.）如果没有定义构造函数，且所有成员变量全是public的话，class可以用大括号初始化。</p>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p><strong>产生死锁的四个必要条件：</strong></p>
+<p><strong>●</strong> <strong>互斥条件</strong>：指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其它进程请求资源，则请求者只能等待，直至占有资源的进程用毕释放。</p>
+<p><strong>●</strong> <strong>请求与保持条件</strong>：进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已被其他进程占有，此时请求进程被阻塞，但对自己已获得的资源保持不放。</p>
+<p><strong>●</strong> <strong>不可剥夺条件</strong>：进程所获得的资源在未使用完毕之前，不能被其他进程强行夺走，即只能由获得该资源的进程自己来释放（只能是主动释放)。</p>
+<p><strong>●</strong> <strong>循环等待条件</strong>：指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</p>
+<p>这四个条件是死锁的必要条件，只要系统发生死锁，这些条件必然成立，而只要上述条件之一不满足，就不会发生死锁。</p>
+<h3 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h3><p>后缀式 ab+cd+/ 可用表达式 ___ 来表示。</p>
+<ul>
+<li>a+b/c+d</li>
+<li>(a+b)/(c+d)</li>
+<li>a+b/(c+d)</li>
+<li>a+b+c/d</li>
+</ul>
+<p>正确答案：B</p>
+<p> <strong>后缀式是指把运算符放至操作数之后，ab+等价于a+b，ab+cd+/等价于两式相除</strong> </p>
+<h3 id="虚函数特点"><a href="#虚函数特点" class="headerlink" title="虚函数特点"></a>虚函数特点</h3><p> ①只有<strong>类的成员函数</strong>才能说明为虚函数。这是因为虚函数仅适用于<strong>有继承关系的类对象</strong>，所以普通函数不能说明为虚函数。 </p>
+<p>②<strong>静态成员函数不能</strong>是虚函数，因为静态成员函数不受限于某个对象。 </p>
+<p>③<strong>内联函数不能是</strong>虚函数，因为内联函数是<strong>不能在运行中动态确定其位置</strong>。即使虚函数在类的内部定义，编译时仍将其看作是非内联的。 </p>
+<p>④<strong>构造函数不能是</strong>虚函数，因为构造时对象还是一片未定型的空间。只有在构造完成后，对象才能成为一个类的名副其实的实例。 </p>
+<p>⑤<strong>析构函数可以是虚函数</strong>，而且通常说明为虚函数。说明虚函数的目的在于；使用 delete运算符删除一个对象时，能确保析构函数被正确地执行。这是因为设置虚析构函数后，可以利用<strong>动态联编方式选择析构函数</strong>。 </p>
+<p>⑥一般要求基类中说明了虚函数后，<strong>派生类说明的虚函数应该与基类中虚函数的参数个数相等，对应参数的类型相同</strong>。如果不相同，则将派生类虚函数的参数类型强制转换为基类中虚函数的参数类型。</p>
+
       
 
       
@@ -740,268 +1185,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/10/最低公共祖先/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-买苹果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/10/买苹果/">买苹果</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/10/买苹果/" class="archive-article-date">
-  	<time datetime="2019-09-10T15:31:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="买苹果问题"><a href="#买苹果问题" class="headerlink" title="买苹果问题"></a>买苹果问题</h1><p>小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。</p>
-<p><strong>输入描述:</strong></p>
-<p>输入一个整数n，表示小易想购买n(1 ≤ n ≤ 100)个苹果</p>
-<p><strong>输出描述:</strong></p>
-<p>输出一个整数表示最少需要购买的袋数，如果不能买恰好n个苹果则输出-1</p>
-<p><strong>输入例子:</strong><br>20<br><strong>输出例子:</strong><br>3</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n &amp;&amp; n &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a = n / <span class="number">6</span>;</span><br><span class="line">        <span class="keyword">int</span> b = n / <span class="number">8</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = b;i &gt;= <span class="number">0</span>;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt;= a;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="number">6</span> * j + <span class="number">8</span> * i == n)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; j + i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="keyword">int</span> N)</span> <span class="comment">// 总共的苹果数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=N/<span class="number">6</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>((N-i*<span class="number">6</span>)%<span class="number">8</span>==<span class="number">0</span>) <span class="comment">//优先减去较小数的倍数</span></span><br><span class="line">            <span class="keyword">return</span> (i+(N<span class="number">-6</span>*i)/<span class="number">8</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/10/买苹果/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Git与分布式架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/09/Git与分布式架构/">Git与分布式架构</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/09/Git与分布式架构/" class="archive-article-date">
-  	<time datetime="2019-09-09T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git与分布式架构"><a href="#Git与分布式架构" class="headerlink" title="Git与分布式架构"></a>Git与分布式架构</h1><p>1.版本控制的分布式和集中式的区别：<br>CVS及SVN这些集中式的版本控制系统，而Git是分布式版本控制系统</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/09/Git与分布式架构/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Qt之信号槽" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/09/Qt之信号槽/">Qt之信号槽</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/09/Qt之信号槽/" class="archive-article-date">
-  	<time datetime="2019-09-09T07:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Qt信号与槽"><a href="#Qt信号与槽" class="headerlink" title="Qt信号与槽"></a>Qt信号与槽</h1><p>  信号与槽（Signal &amp; Slot）是 Qt 编程的基础，也是 Qt 的一大创新。因为有了信号与槽的编程机制，在 Qt 中处理界面各个组件的交互操作时变得更加直观和简单。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/09/Qt之信号槽/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-红黑树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/08/红黑树/">红黑树</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/08/红黑树/" class="archive-article-date">
-  	<time datetime="2019-09-08T04:54:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><p><strong>1.为什么需要红黑树？</strong></p>
-<p>对于二叉搜索树，如果插入的数据是随机的，那么它就是接近平衡的二叉树，平衡的二叉树，它的操作效率（查询，插入，删除）效率较高，时间复杂度是O（logN）。但是可能会出现一种极端的情况，那就是插入的数据是有序的（递增或者递减），那么所有的节点都会在根节点的右侧或左侧，此时，二叉搜索树就变为了一个链表，它的操作效率就降低了，时间复杂度为O(N)，所以可以认为二叉搜索树的时间复杂度介于O（logN）和O(N)之间，视情况而定。那么为了应对这种极端情况，红黑树就出现了，它是具备了某些特性的二叉搜索树，能解决非平衡树问题，红黑树是一种接近平衡的二叉树。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/08/红黑树/">展开全文 >></a>
         </p>
       
 
